@@ -6,51 +6,94 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 class TerrainFace {
 
-    constructor(geometry, resolution, localUp) {
-        this.geometry = geometry;
-        this.resolution = resolution;
-        this.localUp = localUp;
+    #resolution;
+    #vertexIdOffset;
+    #localUp;
 
-        this.axisA = new Vector3(localUp.y, localUp.z, localUp.x);
-        this.axisB = new Vector3().crossVectors(localUp, this.axisA);
+    #axisA;
+    #axisB;
+
+    #vertices = [];
+    #indices = [];
+
+    constructor(resolution, vertexIdOffset, localUp) {
+        this.#resolution = resolution;
+        this.#vertexIdOffset = vertexIdOffset;
+        this.#localUp = localUp;
+
+        this.#axisA = new Vector3(localUp.y, localUp.z, localUp.x);
+        this.#axisB = new Vector3().crossVectors(localUp, this.#axisA);
+
+        this.constructMesh();
     }
 
     constructMesh() {
-        let vertices = new Float32Array((this.resolution * this.resolution) * 3);
-        let triangles = new Float32Array((this.resolution - 1) * (this.resolution - 1) * 6);
-        let triIndex = 0;
+        for (let y = 0; y < this.#resolution; y++) {
+            for (let x = 0; x < this.#resolution; x++) {
+                let percent = new Vector2(x, y).divideScalar(this.#resolution - 1);
+                let pointOnUnitCube = this.#localUp.clone().add(this.#axisA.clone().multiplyScalar((percent.x - 0.5) * 2)).add(this.#axisB.clone().multiplyScalar((percent.y - 0.5) * 2));
+                let pointOnUnitSphere = pointOnUnitCube.clone().normalize();
 
-        for (let y = 0; y < this.resolution; y++) {
-            for (let x = 0; x < this.resolution; x++) {
-                let i = x + y * this.resolution;
+                this.#vertices.push(...pointOnUnitSphere);
 
-                let percent = new Vector2(x, y).divideScalar(this.resolution - 1);
-                let pointOnUnitCube = new Vector3(...this.localUp).add(new Vector3(...this.axisA).multiplyScalar((percent.x - 0.5) * 2)).add(new Vector3(...this.axisB).multiplyScalar((percent.y - 0.5) * 2))
+                if (x !== this.#resolution - 1 && y !== this.#resolution - 1) {
+                    let i = (x + y * this.#resolution) + this.#vertexIdOffset;
 
-                vertices[i * 3] = pointOnUnitCube.x;
-                vertices[i * 3 + 1] = pointOnUnitCube.y;
-                vertices[i * 3 + 2] = pointOnUnitCube.z;
-
-                if (x !== this.resolution - 1 && y !== this.resolution - 1) {
                     // Triangle 1
-                    triangles[triIndex] = i;
-                    triangles[triIndex + 1] = i + this.resolution + 1;
-                    triangles[triIndex + 2] = i + this.resolution;
+                    this.#indices.push(i, i + this.#resolution + 1, i + this.#resolution);
 
                     // Triangle 2
-                    triangles[triIndex + 3] = i;
-                    triangles[triIndex + 4] = i + 1;
-                    triangles[triIndex + 5] = i + this.resolution + 1;
-
-                    triIndex += 6;
+                    this.#indices.push(i, i + 1, i + this.#resolution + 1);
                 }
             }
         }
-
-        this.geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices, 3));
-        this.geometry.setIndex(new THREE.Float32BufferAttribute(triangles, 3));
-        this.geometry.computeVertexNormals();
     }
+
+    getVertices() {
+        return this.#vertices;
+    }
+
+    getIndices() {
+        return this.#indices;
+    }
+}
+
+class Planet {
+
+    static directions = [new Vector3(1, 0, 0), new Vector3(0, 0, 1), new Vector3(-1, 0, 0), new Vector3(0, 0, -1), new Vector3(0, 1, 0), new Vector3(0, -1, 0)];
+
+    #vertices = [];
+    #indices = [];
+
+    #resolution;
+    #geometry = new THREE.BufferGeometry();
+
+    constructor(resolution) {
+        this.#resolution = resolution;
+
+        this.createVerticesAndIndices();
+        this.createGeometry();
+    }
+
+    createVerticesAndIndices() {
+        Planet.directions.forEach(direction => {
+            let terrainFace = new TerrainFace(this.#resolution, this.#vertices.length / 3, direction);
+
+            this.#vertices.push(...terrainFace.getVertices());
+            this.#indices.push(...terrainFace.getIndices());
+        });
+    }
+
+    createGeometry() {
+        this.#geometry.setIndex(this.#indices);
+        this.#geometry.setAttribute("position", new THREE.Float32BufferAttribute(this.#vertices, 3));
+        this.#geometry.computeVertexNormals();
+    }
+
+    getGeometry() {
+        return this.#geometry;
+    }
+
 }
 
 const scene = new THREE.Scene();
@@ -61,16 +104,19 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.outputEncoding = THREE.sRGBEncoding;
 camera.position.setZ(30);
 
-const geometry = new THREE.BufferGeometry();
+const planet = new Planet(50);
 
-const terrainFace = new TerrainFace(geometry, 10, new Vector3(0, 0, 1));
-terrainFace.constructMesh();
+console.log(planet.getGeometry());
 
-const material = new THREE.MeshBasicMaterial({ wireframe: true });
-const object = new THREE.Mesh(geometry, material);
-scene.add(object);
+const material = new THREE.MeshStandardMaterial({ color: 0xFF3300 });
+const object = new THREE.Mesh(planet.getGeometry(), material);
+
+const light = new THREE.HemisphereLight(0xFFFFFF, 0x000000);
+
+scene.add(object, light);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
