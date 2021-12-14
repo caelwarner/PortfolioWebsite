@@ -3,12 +3,14 @@ import "./style.css";
 import * as THREE from "three";
 import { Vector2, Vector3 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { makeNoise3D } from "open-simplex-noise";
 
 class TerrainFace {
 
     #resolution;
     #vertexIdOffset;
     #localUp;
+    #noise3D;
 
     #axisA;
     #axisB;
@@ -16,10 +18,11 @@ class TerrainFace {
     #vertices = [];
     #indices = [];
 
-    constructor(resolution, vertexIdOffset, localUp) {
+    constructor(resolution, vertexIdOffset, localUp, noise3D) {
         this.#resolution = resolution;
         this.#vertexIdOffset = vertexIdOffset;
         this.#localUp = localUp;
+        this.#noise3D = noise3D;
 
         this.#axisA = new Vector3(localUp.y, localUp.z, localUp.x);
         this.#axisB = new Vector3().crossVectors(localUp, this.#axisA);
@@ -33,6 +36,11 @@ class TerrainFace {
                 let percent = new Vector2(x, y).divideScalar(this.#resolution - 1);
                 let pointOnUnitCube = this.#localUp.clone().add(this.#axisA.clone().multiplyScalar((percent.x - 0.5) * 2)).add(this.#axisB.clone().multiplyScalar((percent.y - 0.5) * 2));
                 let pointOnUnitSphere = pointOnUnitCube.clone().normalize();
+
+                let strength = 0.3;
+                let roughness = 3.0;
+
+                pointOnUnitSphere.multiplyScalar((this.#noise3D(...pointOnUnitSphere.clone().multiplyScalar(roughness)) * strength) + 1);
 
                 this.#vertices.push(...pointOnUnitSphere);
 
@@ -67,6 +75,7 @@ class Planet {
 
     #resolution;
     #geometry = new THREE.BufferGeometry();
+    #noise3D = makeNoise3D(Date.now());
 
     constructor(resolution) {
         this.#resolution = resolution;
@@ -77,7 +86,7 @@ class Planet {
 
     createVerticesAndIndices() {
         Planet.directions.forEach(direction => {
-            let terrainFace = new TerrainFace(this.#resolution, this.#vertices.length / 3, direction);
+            let terrainFace = new TerrainFace(this.#resolution, this.#vertices.length / 3, direction, this.#noise3D);
 
             this.#vertices.push(...terrainFace.getVertices());
             this.#indices.push(...terrainFace.getIndices());
@@ -107,11 +116,11 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.outputEncoding = THREE.sRGBEncoding;
 camera.position.setZ(30);
 
-const planet = new Planet(50);
+const planet = new Planet(100);
 
 console.log(planet.getGeometry());
 
-const material = new THREE.MeshStandardMaterial({ color: 0xFF3300 });
+const material = new THREE.MeshStandardMaterial({ color: 0x3300FF });
 const object = new THREE.Mesh(planet.getGeometry(), material);
 
 const light = new THREE.HemisphereLight(0xFFFFFF, 0x000000);
