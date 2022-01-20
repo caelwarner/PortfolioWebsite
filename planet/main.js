@@ -4,7 +4,7 @@ import * as THREE from "three";
 import {MathUtils, Vector2, Vector3} from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { makeNoise3D } from "open-simplex-noise";
-import {MathUtil} from "three/examples/jsm/libs/OimoPhysics";
+import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 
 class TerrainFace {
 
@@ -20,7 +20,6 @@ class TerrainFace {
 
     #vertices = [];
     #indices = [];
-    #colors = [];
 
     constructor(resolution, vertexIdOffset, localUp, planet) {
         this.#resolution = resolution;
@@ -95,8 +94,8 @@ class Planet {
         new RidgeNoiseFilter(3, 5,2.6, 3, 0.5, 1.1, 1, true, Date.now() + 58439050)
     ];
 
-    // #colorScheme = new ColorGenerator([new Vector3(0, 105, 148), new Vector3(86, 125, 70), new Vector3(57, 140, 10), new Vector3(70, 46, 26), new Vector3(255, 250, 250)], [0, 0.05, 0.5, 0.7, 1]);
-    #colorScheme = new ColorGenerator([new Vector3(116, 93, 235), new Vector3(210, 221, 56), new Vector3(203, 46, 30), new Vector3(203, 46, 30)], [0, 0.1, 0.6, 1]);
+    #colorScheme = new ColorGenerator([new Vector3(0, 105, 148), new Vector3(86, 125, 70), new Vector3(57, 140, 10), new Vector3(70, 46, 26), new Vector3(255, 250, 250)], [0, 0.05, 0.5, 0.7, 1]);
+    // #colorScheme = new ColorGenerator([new Vector3(116, 93, 235), new Vector3(210, 221, 56), new Vector3(203, 46, 30), new Vector3(203, 46, 30)], [0, 0.1, 0.6, 1]);
 
     constructor(resolution) {
         this.#resolution = resolution;
@@ -290,14 +289,23 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(30);
 
-const planet = new Planet(256);
+// const planet = new Planet(128);
+//
+// const material = new THREE.MeshPhongMaterial({ vertexColors: true });
+// const object = new THREE.Mesh(planet.getGeometry(), material);
 
-const material = new THREE.MeshPhongMaterial({ vertexColors: true });
-const object = new THREE.Mesh(planet.getGeometry(), material);
+// const light = new THREE.HemisphereLight(0xFF8B00, 0x0200C6);
 
-const light = new THREE.HemisphereLight(0xFFFFFF, 0x000000);
+const loader = new GLTFLoader();
 
-scene.add(object, light);
+const loadedData = await loader.loadAsync("/laptop.glb");
+const laptop = loadedData.scene.children[0];
+laptop.position.set(-148, 0, 0);
+laptop.scale.set(0.1, 0.1, 0.1);
+
+const light = new THREE.AmbientLight(0xFFFFFF, 1);
+
+scene.add(light, laptop);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
