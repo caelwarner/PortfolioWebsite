@@ -38,7 +38,7 @@ export default class TerrainFace {
                 pointOnUnitSphere.multiplyScalar(elevation);
 
                 this.#elevations.push(elevation);
-                this.#vertices.push(...pointOnUnitSphere);
+                this.#vertices.push(pointOnUnitSphere.x, pointOnUnitSphere.y, pointOnUnitSphere.z);
 
                 if (x !== this.#resolution - 1 && y !== this.#resolution - 1) {
                     let i = (x + y * this.#resolution) + this.#vertexIdOffset;

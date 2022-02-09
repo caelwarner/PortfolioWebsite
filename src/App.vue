@@ -102,7 +102,7 @@ import Laptop from "@/components/Laptop";
 
 export default {
 	name: 'App',
-	components: {Laptop, Planet, NavBar }
+	components: { Planet, Laptop, NavBar }
 }
 </script>
 

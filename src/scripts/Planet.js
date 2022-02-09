@@ -4,7 +4,7 @@ import TerrainFace from "@/scripts/TerrainFace";
 import ColorGenerator from "@/scripts/ColorGenerator";
 import RidgeNoiseFilter from "@/scripts/RidgeNoiseFilter";
 import SimpleNoiseFilter from "@/scripts/SimpleNoiseFilter";
-import * as BufferGeometryUtils from "three/examples/jsm/utils/BufferGeometryUtils";
+// import * as BufferGeometryUtils from "three/examples/jsm/utils/BufferGeometryUtils";
 
 export default class Planet {
 
@@ -88,15 +88,17 @@ export default class Planet {
         });
 
         elevations.forEach(elevation => {
-            this.#colors.push(...this.calculateColor(elevation));
-        })
+            let calculatedColors = this.calculateColor(elevation);
+
+            this.#colors.push(calculatedColors.x, calculatedColors.y, calculatedColors.z);
+        });
     }
 
     createGeometry() {
         this.#geometry.setIndex(this.#indices);
         this.#geometry.setAttribute("position", new THREE.Float32BufferAttribute(this.#vertices, 3));
         this.#geometry.setAttribute("color", new THREE.Float32BufferAttribute(this.#colors, 3));
-        this.#geometry = BufferGeometryUtils.mergeVertices(this.#geometry);
+        // this.#geometry = BufferGeometryUtils.mergeVertices(this.#geometry);
         this.#geometry.computeVertexNormals();
     }
 
