@@ -21,7 +21,8 @@ export default class SimpleNoiseFilter {
         let amplitude = 1;
 
         for (let i = 0; i < this.numLayers; i++) {
-            let nextLayerNoise = this.#evaluateNoise(...position.clone().multiplyScalar(frequency));
+            let adjustedPosition = position.clone().multiplyScalar(frequency);
+            let nextLayerNoise = this.#evaluateNoise(adjustedPosition.x, adjustedPosition.y, adjustedPosition.z);
             elevation += (nextLayerNoise + 1) * 0.5 * amplitude;
 
             frequency *= this.roughness;

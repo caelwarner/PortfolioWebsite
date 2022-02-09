@@ -24,7 +24,8 @@ export default class RidgeNoiseFilter {
         let weight = 1;
 
         for (let i = 0; i < this.numLayers; i++) {
-            let nextLayerNoise = 1 - Math.abs(this.#evaluateNoise(...position.clone().multiplyScalar(frequency)));
+            let adjustedPosition = position.clone().multiplyScalar(frequency);
+            let nextLayerNoise = 1 - Math.abs(this.#evaluateNoise(adjustedPosition.x, adjustedPosition.y, adjustedPosition.z));
             nextLayerNoise *= nextLayerNoise;
             nextLayerNoise *= weight;
             weight = MathUtils.clamp(nextLayerNoise * this.weightMultiplier, 0, 1);

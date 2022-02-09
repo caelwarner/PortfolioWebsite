@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "fast-simplex-noise": "^4.0.0",
+    "fastnoise-lite": "0.0.1",
     "open-simplex-noise": "^2.5.0",
     "three": "^0.135.0",
     "vue": "^2.6.11",
