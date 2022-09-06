@@ -1,9 +1,7 @@
-import { makeNoise3D } from "open-simplex-noise";
 import { MathUtils } from "three";
+import SimplexNoise from "simplex-noise";
 
 export default class RidgeNoiseFilter {
-
-    #evaluateNoise;
 
     constructor(strength, numLayers, baseRoughness, roughness, persistence, minHeight, weightMultiplier, useFirstLayerAsMask, seed) {
         this.strength = strength;
@@ -14,7 +12,7 @@ export default class RidgeNoiseFilter {
         this.minHeight = minHeight;
         this.weightMultiplier = weightMultiplier;
         this.useFirstLayerAsMask = useFirstLayerAsMask;
-        this.#evaluateNoise = makeNoise3D(seed);
+        this.simplex = new SimplexNoise(seed);
     }
 
     evaluate(position) {
@@ -24,8 +22,7 @@ export default class RidgeNoiseFilter {
         let weight = 1;
 
         for (let i = 0; i < this.numLayers; i++) {
-            let adjustedPosition = position.clone().multiplyScalar(frequency);
-            let nextLayerNoise = 1 - Math.abs(this.#evaluateNoise(adjustedPosition.x, adjustedPosition.y, adjustedPosition.z));
+            let nextLayerNoise = 1 - Math.abs(this.simplex.noise3D(position.x * frequency, position.y * frequency, position.z * frequency) * 0.7);
             nextLayerNoise *= nextLayerNoise;
             nextLayerNoise *= weight;
             weight = MathUtils.clamp(nextLayerNoise * this.weightMultiplier, 0, 1);

@@ -1,8 +1,6 @@
-import { makeNoise3D } from "open-simplex-noise";
+import SimplexNoise from "simplex-noise";
 
 export default class SimpleNoiseFilter {
-
-    #evaluateNoise;
 
     constructor(strength, numLayers, baseRoughness, roughness, persistence, minHeight, useFirstLayerAsMask, seed) {
         this.strength = strength;
@@ -12,7 +10,7 @@ export default class SimpleNoiseFilter {
         this.persistence = persistence;
         this.minHeight = minHeight;
         this.useFirstLayerAsMask = useFirstLayerAsMask;
-        this.#evaluateNoise = makeNoise3D(seed);
+        this.simplex = new SimplexNoise(seed);
     }
 
     evaluate(position) {
@@ -21,8 +19,7 @@ export default class SimpleNoiseFilter {
         let amplitude = 1;
 
         for (let i = 0; i < this.numLayers; i++) {
-            let adjustedPosition = position.clone().multiplyScalar(frequency);
-            let nextLayerNoise = this.#evaluateNoise(adjustedPosition.x, adjustedPosition.y, adjustedPosition.z);
+            let nextLayerNoise = this.simplex.noise3D(position.x * frequency, position.y * frequency, position.z * frequency) * 0.4;
             elevation += (nextLayerNoise + 1) * 0.5 * amplitude;
 
             frequency *= this.roughness;
