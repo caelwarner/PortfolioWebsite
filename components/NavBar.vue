@@ -4,22 +4,14 @@
 			<h2>CW</h2>
 		</div>
 		<ul class="nav-list">
-			<li class="nav-item"><a href="#projects">Projects</a></li>
-			<li class="nav-item"><a href="#about">About</a></li>
-			<li class="nav-item"><a href="#contact">Contact</a></li>
+			<li class="nav-item"><NuxtLink to="#projects">Projects</NuxtLink></li>
+			<li class="nav-item"><NuxtLink to="#about">About</NuxtLink></li>
+			<li class="nav-item"><NuxtLink to="#contact">Contact</NuxtLink></li>
 		</ul>
 	</nav>
 </template>
 
-<script>
-export default {
-	name: "NavBar"
-}
-</script>
-
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,900&display=swap');
-
 nav {
 	font-family: "Gotham", Helvetica, Arial, sans-serif;
 	font-weight: 500;

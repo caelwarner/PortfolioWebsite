@@ -1,8 +1,20 @@
 import { Vector2, Vector3 } from "three";
+import Planet from "~/scripts/Planet";
 
 export default class TerrainFace {
+  private readonly resolution: number;
+  private readonly vertexIdOffset: number;
+  private localUp: Vector3;
+  private planet: Planet;
 
-    constructor(resolution, vertexIdOffset, localUp, planet) {
+  private readonly axisA: Vector3;
+  private readonly axisB: Vector3;
+
+  private readonly vertices: number[] = [];
+  private readonly indices: number[] = [];
+  private readonly elevations: number[] = [];
+
+    constructor(resolution: number, vertexIdOffset: number, localUp: Vector3, planet: Planet) {
         this.resolution = resolution;
         this.vertexIdOffset = vertexIdOffset;
         this.localUp = localUp;
@@ -11,15 +23,10 @@ export default class TerrainFace {
         this.axisA = new Vector3(localUp.y, localUp.z, localUp.x);
         this.axisB = new Vector3().crossVectors(localUp, this.axisA);
 
-        this.elevations = [];
-
-        this.vertices = [];
-        this.indices = [];
-
         this.constructMesh();
     }
 
-    constructMesh() {
+    constructMesh(): void {
         for (let y = 0; y < this.resolution; y++) {
             for (let x = 0; x < this.resolution; x++) {
                 let percent = new Vector2(x, y).divideScalar(this.resolution - 1);
@@ -45,15 +52,15 @@ export default class TerrainFace {
         }
     }
 
-    getVertices() {
+    getVertices(): number[] {
         return this.vertices;
     }
 
-    getIndices() {
+    getIndices(): number[] {
         return this.indices;
     }
 
-    getElevations() {
+    getElevations(): number[] {
         return this.elevations;
     }
 }

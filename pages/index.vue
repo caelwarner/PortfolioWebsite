@@ -9,7 +9,12 @@
 				<h1>Cael Warner</h1>
 				<h3><span>\</span>Developer</h3>
 			</div>
-			<Planet></Planet>
+			<client-only>
+				<Planet />
+				<template slot="placeholder">
+					<h2 class="loading">Loading...</h2>
+				</template>
+			</client-only>
 		</div>
 
 		<div id="projects">
@@ -18,7 +23,8 @@
 
 					<h2 class="name">Infernal Expansion</h2>
 					<h6 class="date">Oct 2020 - Present</h6>
-					<p>A community lead mod to expand on Minecraft in Java. It's currently amassed over 4 million downloads.</p>
+					<p>A community lead mod to expand on Minecraft in Java. It's currently amassed over 4 million
+						downloads.</p>
 					<div class="buttons">
 						<a href="https://www.curseforge.com/minecraft/mc-mods/infernal-expansion" target="_blank">
 							<button class="button">View Project</button>
@@ -29,13 +35,16 @@
 					</div>
 				</div>
 
-				<Laptop number="1" texture="/infernal_expansion.png"></Laptop>
+				<client-only placeholder="Loading...">
+					<Laptop texture="/infernal_expansion.png" />
+				</client-only>
 			</div>
 			<div class="project">
 				<div class="content">
 					<h2 class="name">TeleAEye</h2>
 					<h6 class="date">Jan 2021</h6>
-					<p>A fullstack web app made with Python and VueJS to connect eye doctors and patients for easier diagnoses of eye diseases.</p>
+					<p>A fullstack web app made with Python and VueJS to connect eye doctors and patients for easier
+						diagnoses of eye diseases.</p>
 					<div class="buttons">
 						<a>
 							<button class="button">Unreleased</button>
@@ -43,13 +52,16 @@
 					</div>
 				</div>
 
-				<Laptop number="2" texture="/teleaeye.png"></Laptop>
+				<client-only placeholder="Loading...">
+					<Laptop texture="/teleaeye.png" />
+				</client-only>
 			</div>
 			<div class="project">
 				<div class="content">
 					<h2 class="name">Darkness Activated Tiles</h2>
 					<h6 class="date">June 2021</h6>
-					<p>A small addon module for FoundryVTT, a virtual table top for games like D&D. Made in Javascript.</p>
+					<p>A small addon module for FoundryVTT, a virtual table top for games like D&D. Made in
+						Javascript.</p>
 					<div class="buttons">
 						<a href="https://foundryvtt.com/packages/darkness-activated-tiles" target="_blank">
 							<button class="button">View Project</button>
@@ -60,8 +72,9 @@
 					</div>
 				</div>
 
-				<Laptop number="3" texture="/darkness_activated_tiles.png"></Laptop>
-
+				<client-only placeholder="Loading...">
+					<Laptop texture="/darkness_activated_tiles.png" />
+				</client-only>
 			</div>
 		</div>
 
@@ -72,7 +85,12 @@
 			</div>
 
 			<div class="content">
-				<p>I'm a self taught developer with over 5 years of experience. I can program in a wide range of languages like Java, Python and Javascript. <br><br> I've used a large collection of frameworks and libraries like Forge and Fabric in Java for mod development for Minecraft. Flask and Ariadne in Python for creating web app backends. VueJS and ThreeJS for creating websites just like this one. I love to learn new technologies and work with new people. If you'd like to contact me feel free with the details below.</p>
+				<p>I'm a self taught developer with over 5 years of experience. I can program in a wide range of
+					languages like Java, Python and Javascript. <br /> I've used a large collection of frameworks and
+					libraries like Forge and Fabric in Java for mod development for Minecraft. Flask and Ariadne in
+					Python for creating web app backends. VueJS and ThreeJS for creating websites just like this one. I
+					love to learn new technologies and work with new people. If you'd like to contact me feel free with
+					the details below.</p>
 			</div>
 		</div>
 
@@ -86,7 +104,8 @@
 				<ul>
 					<li>Email | <span><a href="mailto:caelawarner@gmail.com">caelawarner@gmail.com</a></span></li>
 					<li>Phone | <span>778-870-2720</span></li>
-					<li>GitHub | <span><a href="https://github.com/caelwarner/" target="_blank">caelwarner</a></span></li>
+					<li>GitHub | <span><a href="https://github.com/caelwarner/" target="_blank">caelwarner</a></span>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -95,21 +114,19 @@
 	</div>
 </template>
 
-<script>
-import NavBar from "@/components/NavBar";
-import Planet from "@/components/Planet";
-import Laptop from "@/components/Laptop";
+<script lang="ts">
+import Vue from "vue";
+import NavBar from "~/components/NavBar.vue";
+import Planet from "~/components/Planet.vue";
+import Laptop from "~/components/Laptop.vue";
 
-export default {
+export default Vue.extend({
 	name: 'App',
 	components: { Planet, Laptop, NavBar }
-}
+});
 </script>
 
 <style>
-@import url(https://allfont.net/allfont.css?fonts=league-spartan);
-@import url('http://fonts.cdnfonts.com/css/gotham');
-
 :root {
 	--bg-color: #03020b;
 	--heading-color: #dff9fb;
@@ -119,6 +136,15 @@ export default {
 
 body {
 	background-color: var(--bg-color);
+}
+
+.loading {
+	font-size: 3rem;
+	font-family: Helvetica, Arial, sans-serif;
+	font-style: italic;
+	font-weight: 100;
+	margin-top: 15rem;
+	color: var(--heading-color);
 }
 
 #app {

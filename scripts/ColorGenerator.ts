@@ -1,13 +1,16 @@
-import { MathUtils } from "three";
+import { MathUtils, Vector3 } from "three";
 
 export default class ColorGenerator {
 
-    constructor(colors, positions) {
+  private readonly colors: Vector3[];
+  private readonly positions: number[];
+
+    constructor(colors: Vector3[], positions: number[]) {
         this.colors = colors;
         this.positions = positions;
     }
 
-    evaluate(elevation, min, max) {
+    evaluate(elevation: number, min: number, max: number): Vector3 {
         let position = MathUtils.inverseLerp(min, max, elevation);
 
         for (let i = 0; i < this.positions.length; i++) {
