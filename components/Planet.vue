@@ -26,41 +26,7 @@ export default class extends Vue {
 
 		let planet = new Planet(200);
 
-		// const vertexShader = `
-		// 	varying vec3 vLocalPosition;
-		//
-		// 	void main() {
-		// 		vLocalPosition = position;
-		//
-		// 		gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-		// 	}
-		// `;
-		//
-		// const fragmentShader = `
-		// 	uniform float uMinElevation;
-		// 	uniform float uMaxElevation;
-		//
-		// 	varying vec3 vLocalPosition;
-		//
-		// 	void main() {
-		// 		float elevation = smoothstep(uMinElevation, uMaxElevation, length(vLocalPosition));
-		// 		gl_FragColor = vec4(0.5, 0.5, 0.5, 1.0);
-		// 	}
-		// `;
-
 		const material = new THREE.MeshPhongMaterial({ vertexColors: true });
-		// const material = new THREE.ShaderMaterial({
-		// 	uniforms: {
-		// 		uMinElevation: {
-		// 			value: planet.minElevation
-		// 		},
-		// 		uMaxElevation: {
-		// 			value: planet.maxElevation
-		// 		}
-		// 	},
-		// 	vertexShader: vertexShader,
-		// 	fragmentShader: fragmentShader
-		// });
 		this.mesh = new THREE.Mesh(planet.getGeometry(), material);
 
 		this.mesh.scale.x = 16;
