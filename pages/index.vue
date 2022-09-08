@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<header>
-			<NavBar></NavBar>
+			<NavBar />
 		</header>
 
 		<div id="home">
@@ -9,12 +9,15 @@
 				<h1>Cael Warner</h1>
 				<h3><span>\</span>Developer</h3>
 			</div>
-			<client-only>
-				<Planet />
-				<template slot="placeholder">
-					<h2 class="loading">Loading...</h2>
-				</template>
-			</client-only>
+			<div class="planet">
+				<client-only>
+					<Planet />
+
+					<template slot="placeholder">
+						<h2 class="planet-loading">Loading...</h2>
+					</template>
+				</client-only>
+			</div>
 		</div>
 
 		<div id="projects">
@@ -35,9 +38,15 @@
 					</div>
 				</div>
 
-				<client-only placeholder="Loading...">
-					<Laptop texture="/infernal_expansion.png" />
-				</client-only>
+				<div class="laptop">
+					<client-only>
+						<Laptop texture="/infernal_expansion.png" />
+
+						<template slot="placeholder">
+							<h3 class="laptop-loading">Loading...</h3>
+						</template>
+					</client-only>
+				</div>
 			</div>
 			<div class="project">
 				<div class="content">
@@ -52,9 +61,15 @@
 					</div>
 				</div>
 
-				<client-only placeholder="Loading...">
-					<Laptop texture="/teleaeye.png" />
-				</client-only>
+				<div class="laptop">
+					<client-only>
+						<Laptop texture="/teleaeye.png" />
+
+						<template slot="placeholder">
+							<h3 class="laptop-loading">Loading...</h3>
+						</template>
+					</client-only>
+				</div>
 			</div>
 			<div class="project">
 				<div class="content">
@@ -72,9 +87,15 @@
 					</div>
 				</div>
 
-				<client-only placeholder="Loading...">
-					<Laptop texture="/darkness_activated_tiles.png" />
-				</client-only>
+				<div class="laptop">
+					<client-only>
+						<Laptop texture="/darkness_activated_tiles.png" />
+
+						<template slot="placeholder">
+							<h3 class="laptop-loading">Loading...</h3>
+						</template>
+					</client-only>
+				</div>
 			</div>
 		</div>
 
@@ -138,15 +159,6 @@ body {
 	background-color: var(--bg-color);
 }
 
-.loading {
-	font-size: 3rem;
-	font-family: Helvetica, Arial, sans-serif;
-	font-style: italic;
-	font-weight: 100;
-	margin-top: 15rem;
-	color: var(--heading-color);
-}
-
 #app {
 	font-family: "Gotham", Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
@@ -156,14 +168,15 @@ body {
 }
 
 #home {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 	height: 90vh;
 }
 
 #home .heading {
 	font-family: "League Spartan Bold", Helvetica, Arial, sans-serif;
-	position: absolute;
-	top: 30%;
-	left: 10%;
 	text-align: left;
 	line-height: 5.5rem;
 	z-index: -1;
@@ -184,17 +197,34 @@ body {
 	color: var(--heading-color);
 }
 
+.planet {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: -2rem;
+	z-index: -2;
+	width: 100vh;
+	height: 100vh;
+}
+
+.planet-loading {
+	font-size: 3rem;
+	font-family: Helvetica, Arial, sans-serif;
+	font-style: italic;
+	font-weight: 100;
+	color: var(--sub-heading-color);
+}
+
 #projects {
 	display: flex;
 	flex-direction: column;
-	align-content: center;
+	justify-content: center;
+	align-items: center;
 }
 
 .project {
 	display: flex;
 	flex-direction: row;
-	align-content: center;
-	justify-content: center;
 }
 
 .project .content {
@@ -254,6 +284,22 @@ body {
 
 .project .button:hover {
 	border-color: #81dee6;
+}
+
+.laptop {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 70rem;
+	height: 70rem;
+}
+
+.laptop-loading {
+	font-size: 1.6rem;
+	font-family: Helvetica, Arial, sans-serif;
+	font-style: italic;
+	font-weight: 100;
+	color: var(--sub-heading-color);
 }
 
 #about {

@@ -24,7 +24,7 @@ export default class extends Vue {
 	init(): void {
 		this.camera = new THREE.PerspectiveCamera(75, this.$el.clientWidth / this.$el.clientHeight, 0.1,  1000);
 
-		let planet = new Planet(200);
+		let planet = new Planet(128);
 
 		const material = new THREE.MeshPhongMaterial({ vertexColors: true });
 		this.mesh = new THREE.Mesh(planet.getGeometry(), material);
@@ -63,13 +63,3 @@ export default class extends Vue {
 }
 </script>
 
-<style scoped>
-.planet {
-	position: absolute;
-	top: -1rem;
-	left: 42vw;
-	z-index: -2;
-	width: 100vh;
-	height: 100vh;
-}
-</style>

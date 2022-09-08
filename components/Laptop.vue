@@ -99,11 +99,3 @@ export default class extends Vue {
 	}
 }
 </script>
-
-<style scoped>
-.laptop {
-	display: inline-block;
-	width: 70rem;
-	height: 70rem;
-}
-</style>
