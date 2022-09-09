@@ -172,23 +172,25 @@ body {
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-	height: 90vh;
 }
 
 #home .heading {
 	font-family: "League Spartan Bold", Helvetica, Arial, sans-serif;
+	margin-top: -5rem;
+	margin-left: 5rem;
 	text-align: left;
-	line-height: 5.5rem;
 	z-index: -1;
 }
 
 #home .heading h1 {
 	font-size: 7rem;
+	line-height: 6rem;
 	margin-bottom: 0;
 }
 
 #home .heading h3 {
 	font-size: 4.5rem;
+	line-height: 4rem;
 	margin-top: 0;
 	color: var(--sub-heading-color);
 }
@@ -225,6 +227,8 @@ body {
 .project {
 	display: flex;
 	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 }
 
 .project .content {
@@ -402,6 +406,33 @@ footer {
 	margin-top: 10rem;
 	margin-bottom: 2rem;
 	color: var(--sub-heading-color);
+}
+
+@media screen and (max-width: 480px) {
+	:root {
+		font-size: 12px;
+	}
+
+	#home {
+		flex-direction: column;
+	}
+
+	#home .heading {
+		margin-top: -1rem;
+	}
+
+	.project {
+		flex-direction: column;
+	}
+
+	.project .content {
+		margin-right: 0;
+	}
+
+	.laptop {
+		width: 45rem;
+		height: 45rem;
+	}
 }
 
 </style>
