@@ -27,11 +27,13 @@ export default class TerrainFace {
     }
 
     constructMesh(): void {
+		const percent = new Vector2();
+		const pointOnUnitSphere = new Vector3();
+
         for (let y = 0; y < this.resolution; y++) {
             for (let x = 0; x < this.resolution; x++) {
-                let percent = new Vector2(x, y).divideScalar(this.resolution - 1);
-                let pointOnUnitCube = this.localUp.clone().add(this.axisA.clone().multiplyScalar((percent.x - 0.5) * 2)).add(this.axisB.clone().multiplyScalar((percent.y - 0.5) * 2));
-                let pointOnUnitSphere = pointOnUnitCube.clone().normalize();
+				percent.set(x, y).divideScalar(this.resolution - 1);
+				pointOnUnitSphere.copy(this.localUp).addScaledVector(this.axisA, (percent.x - 0.5) * 2).addScaledVector(this.axisB, (percent.y - 0.5) * 2).normalize();
 
                 let elevation = this.planet.calculateElevation(pointOnUnitSphere);
                 pointOnUnitSphere.multiplyScalar(elevation);
