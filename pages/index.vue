@@ -40,7 +40,7 @@
 
 				<div class="laptop">
 					<client-only>
-						<Laptop texture="/infernal_expansion.png" />
+						<Laptop texture="index/infernal-expansion.png" />
 
 						<template slot="placeholder">
 							<h3 class="laptop-loading">Loading...</h3>
@@ -63,7 +63,7 @@
 
 				<div class="laptop">
 					<client-only>
-						<Laptop texture="/teleaeye.png" />
+						<Laptop texture="index/teleaeye.png" />
 
 						<template slot="placeholder">
 							<h3 class="laptop-loading">Loading...</h3>
@@ -89,7 +89,7 @@
 
 				<div class="laptop">
 					<client-only>
-						<Laptop texture="/darkness_activated_tiles.png" />
+						<Laptop texture="index/darkness-activated-tiles.png" />
 
 						<template slot="placeholder">
 							<h3 class="laptop-loading">Loading...</h3>

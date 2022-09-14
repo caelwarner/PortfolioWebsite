@@ -35,7 +35,7 @@ export default class extends Vue {
 	async init(): Promise<void> {
 		this.camera = new THREE.PerspectiveCamera(60, this.$el.clientWidth / this.$el.clientHeight, 0.1,  1000)
 
-		const loadedData = await new GLTFLoader().loadAsync("/laptop.glb");
+		const loadedData = await new GLTFLoader().loadAsync("index/laptop.glb");
 
 		loadedData.scene.traverse((child) => {
 			if (child instanceof THREE.Mesh) {

@@ -138,7 +138,7 @@ export default class Planet {
     }
 
 	fetchColors(): Vector3[] {
-		const colorSchemes = require("../static/color_schemes.json");
+		const colorSchemes = require("../static/index/color-schemes.json");
 		const colorScheme = colorSchemes[Math.floor(Math.random() * colorSchemes.length)].colors;
 		const colors: Vector3[] = [];
 
