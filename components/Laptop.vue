@@ -20,7 +20,7 @@ export default class extends Vue {
 	private readonly scene = new THREE.Scene();
 	private readonly renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 
-	private camera: THREE.Camera | undefined;
+	private camera: THREE.PerspectiveCamera | undefined;
 	private laptop: THREE.Object3D | undefined;
 	private screen: THREE.Object3D | undefined;
 
@@ -45,7 +45,7 @@ export default class extends Vue {
 
 		this.laptop = loadedData.scene.children[0];
 
-		this.laptop.position.set(-149, 10, 0);
+		this.laptop.position.set(-149.45, 10, 0);
 		this.laptop.scale.set(0.1, 0.1, 0.1);
 		this.laptop.rotateX(0.15);
 
@@ -55,7 +55,7 @@ export default class extends Vue {
 
 		this.screen = new THREE.Mesh(screenGeometry, screenMaterial);
 
-		this.screen.position.set(0.45, 21.5, 3.5);
+		this.screen.position.set(0, 21.5, 3.5);
 		this.screen.rotation.set(-0.08, 0, 0)
 
 		const ambientLight = new THREE.AmbientLight(0xFFFFFF, 0.15);
@@ -74,9 +74,19 @@ export default class extends Vue {
 
 		this.$el.appendChild(this.renderer.domElement);
 
-		document.addEventListener("mousemove", (event) => {
+		window.addEventListener("mousemove", (event) => {
 			this.mouseX = event.clientX;
 			this.mouseY = event.clientY;
+		});
+
+		window.addEventListener("resize", (event) => {
+			if (!this.camera)
+				return
+
+			this.camera!.aspect =  this.$el.clientWidth / this.$el.clientHeight;
+			this.camera!.updateProjectionMatrix();
+
+			this.renderer.setSize(this.$el.clientWidth, this.$el.clientHeight);
 		});
 	}
 
@@ -88,10 +98,10 @@ export default class extends Vue {
 		if (!this.laptop || !this.screen)
 			return;
 
-		this.laptop!.position.x = (this.mouseX * 0.0005) - 149;
+		this.laptop!.position.x = (this.mouseX * 0.0005) - 149.45;
 		this.laptop!.position.y = (this.mouseY * -0.0005) + 10;
 
-		this.screen!.position.x = (this.mouseX * 0.0005) + 0.45;
+		this.screen!.position.x = (this.mouseX * 0.0005);
 		this.screen!.position.y = (this.mouseY * -0.0005) + 21.5;
 
 		// this.camera!.rotation.x = this.mouseY * -0.00005;

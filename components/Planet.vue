@@ -13,7 +13,7 @@ export default class extends Vue {
 	private readonly scene = new THREE.Scene()
 	private readonly renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 
-	private camera: THREE.Camera | undefined;
+	private camera: THREE.PerspectiveCamera | undefined;
 	private mesh: THREE.Mesh | undefined;
 
 	mounted(): void {
@@ -47,6 +47,16 @@ export default class extends Vue {
 		this.camera.position.setZ(30);
 
 		this.$el.appendChild(this.renderer.domElement);
+
+		window.addEventListener("resize", (event) => {
+			if (!this.camera)
+				return
+
+			this.camera!.aspect =  this.$el.clientWidth / this.$el.clientHeight;
+			this.camera!.updateProjectionMatrix();
+
+			this.renderer.setSize(this.$el.clientWidth, this.$el.clientHeight);
+		});
 	}
 
 	animate(): void {

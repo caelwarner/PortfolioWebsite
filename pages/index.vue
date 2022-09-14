@@ -118,14 +118,14 @@
 		<div id="contact">
 			<div class="heading">
 				<h2>Contact</h2>
-				<h4>Me<span>/</span></h4>
+				<h4><span class="mobile">\</span>Me<span class="desktop">/</span></h4>
 			</div>
 
 			<div class="content">
 				<ul>
 					<li>Email | <span><a href="mailto:caelawarner@gmail.com">caelawarner@gmail.com</a></span></li>
 					<li>Phone | <span>778-870-2720</span></li>
-					<li>GitHub | <span><a href="https://github.com/caelwarner/" target="_blank">caelwarner</a></span>
+					<li>GitHub | <span><a href="https://caelwarner.com/gh" target="_blank">caelwarner</a></span>
 					</li>
 				</ul>
 			</div>
@@ -155,8 +155,21 @@ export default Vue.extend({
 	--dark-accent-color: #66717f;
 }
 
+html {
+	position: absolute;
+	width: 100vw;
+}
+
 body {
 	background-color: var(--bg-color);
+}
+
+.mobile {
+	display: none;
+}
+
+.desktop {
+	display: initial;
 }
 
 #app {
@@ -310,7 +323,7 @@ body {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	width: 50rem;
+	max-width: 50rem;
 	margin: 5rem auto auto;
 }
 
@@ -349,7 +362,7 @@ body {
 	display: flex;
 	flex-direction: row-reverse;
 	justify-content: center;
-	width: 50rem;
+	max-width: 50rem;
 	margin: 10rem auto auto;
 }
 
@@ -413,12 +426,27 @@ footer {
 		font-size: 12px;
 	}
 
+
+	.mobile {
+		display: initial;
+	}
+
+	.desktop {
+		display: none;
+	}
+
 	#home {
 		flex-direction: column;
 	}
 
 	#home .heading {
+		width: min-content;
+		margin-left: 0;
 		margin-top: -1rem;
+	}
+
+	.planet {
+		width: 100vw;
 	}
 
 	.project {
@@ -427,11 +455,45 @@ footer {
 
 	.project .content {
 		margin-right: 0;
+		margin-top: 4rem;
+		margin-bottom: -4rem;
 	}
 
 	.laptop {
-		width: 45rem;
-		height: 45rem;
+		width: 38rem;
+		height: 38rem;
+		max-width: 100vw;
+	}
+
+	#about {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	#about .heading {
+		text-align: center;
+		margin-right: 0;
+	}
+
+	#about .content {
+		margin-left: 3rem;
+		margin-right: 3rem;
+	}
+
+	#contact {
+		flex-direction: column;
+		align-items: center;
+		margin-top: 5rem;
+	}
+
+	#contact .heading {
+		text-align: center;
+		margin-left: 0;
+	}
+
+	#contact .content ul {
+		margin-top: 0;
+		padding-left: 0;
 	}
 }
 
