@@ -1,12 +1,12 @@
 <template>
 	<nav>
 		<div class="logo">
-			<h2>CW</h2>
+			<NuxtLink to="/"><h2>CW</h2></NuxtLink>
 		</div>
 		<ul class="nav-list">
-			<li class="nav-item"><NuxtLink to="#projects">Projects</NuxtLink></li>
-			<li class="nav-item"><NuxtLink to="#about">About</NuxtLink></li>
-			<li class="nav-item"><NuxtLink to="#contact">Contact</NuxtLink></li>
+			<li class="nav-item"><NuxtLink to="/#projects">Projects</NuxtLink></li>
+			<li class="nav-item"><NuxtLink to="/#about">About</NuxtLink></li>
+			<li class="nav-item"><NuxtLink to="/#contact">Contact</NuxtLink></li>
 		</ul>
 	</nav>
 </template>
@@ -27,6 +27,11 @@ nav {
 .logo {
 	display: inline-block;
 	align-self: center;
+}
+
+.logo a {
+	text-decoration: none;
+	color: var(--heading-color);
 }
 
 .logo h2 {

@@ -1,10 +1,6 @@
 <template>
-	<div id="app">
-		<header>
-			<NavBar />
-		</header>
-
-		<div id="home">
+	<div id="page">
+		<section id="home">
 			<div class="heading">
 				<h1>Cael Warner</h1>
 				<h3><span>\</span>Developer</h3>
@@ -18,9 +14,9 @@
 					</template>
 				</client-only>
 			</div>
-		</div>
+		</section>
 
-		<div id="projects">
+		<section id="projects">
 			<div class="project">
 				<div class="content">
 
@@ -97,9 +93,9 @@
 					</client-only>
 				</div>
 			</div>
-		</div>
+		</section>
 
-		<div id="about">
+		<section id="about">
 			<div class="heading">
 				<h2>About</h2>
 				<h4><span>\</span>Me</h4>
@@ -113,9 +109,9 @@
 					love to learn new technologies and work with new people. If you'd like to contact me feel free with
 					the details below.</p>
 			</div>
-		</div>
+		</section>
 
-		<div id="contact">
+		<section id="contact">
 			<div class="heading">
 				<h2>Contact</h2>
 				<h4><span class="mobile">\</span>Me<span class="desktop">/</span></h4>
@@ -129,56 +125,11 @@
 					</li>
 				</ul>
 			</div>
-		</div>
-
-		<footer>&copy; 2022 Cael Warner</footer>
+		</section>
 	</div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-import NavBar from "~/components/NavBar.vue";
-import Planet from "~/components/Planet.vue";
-import Laptop from "~/components/Laptop.vue";
-
-export default Vue.extend({
-	name: 'App',
-	components: { Planet, Laptop, NavBar }
-});
-</script>
-
-<style>
-:root {
-	--bg-color: #03020b;
-	--heading-color: #dff9fb;
-	--sub-heading-color: #66717f;
-	--dark-accent-color: #66717f;
-}
-
-html {
-	position: absolute;
-	width: 100vw;
-}
-
-body {
-	background-color: var(--bg-color);
-}
-
-.mobile {
-	display: none;
-}
-
-.desktop {
-	display: initial;
-}
-
-#app {
-	font-family: "Gotham", Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
-	color: var(--heading-color);
-}
+<style scoped>
 
 #home {
 	display: flex;
@@ -415,26 +366,7 @@ body {
 	color: var(--heading-color);
 }
 
-footer {
-	margin-top: 10rem;
-	margin-bottom: 2rem;
-	color: var(--sub-heading-color);
-}
-
 @media screen and (max-width: 480px) {
-	:root {
-		font-size: 12px;
-	}
-
-
-	.mobile {
-		display: initial;
-	}
-
-	.desktop {
-		display: none;
-	}
-
 	#home {
 		flex-direction: column;
 	}
