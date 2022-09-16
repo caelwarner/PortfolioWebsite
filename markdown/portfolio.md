@@ -6,37 +6,37 @@ The planet is procedurally generated every time the page is reloaded. It's made 
 
 ## Creating the Sphere
 Creating the sphere was the first challenge to overcome. A default option is an UV sphere, which is evenly divided into rows and columns.   This creates the problem of having a higher density of faces and vertices near the poles of the sphere. This would not work well for my purposes because I don't want the planet to have higher levels of details near the poles.
-![UV Sphere](../static/portfolio/uv-sphere.png)
+![UV Sphere](../static/developing-my-portfolio/uv-sphere.png)
 
 A second option would be to use an ico sphere, which has equally sized triangles. This gives me an even distribution of detail across the sphere however due to the nature of triangles I can only increase the number of faces by a factor of four. This gives me very little granularity and control of how detailed the sphere is.
-![Ico Sphere](../static/portfolio/ico-sphere.png)
+![Ico Sphere](../static/developing-my-portfolio/ico-sphere.png)
 
 The third option is to start with a cube, and then normalize ever vertices position from the center. This sphere has a very even distribution of detail, with only slightly more detail near the seams where the sides of the cube have come together. It also gives me a high granularity of detail as I can divide the sides of the cube into as many faces as I'd like.
-![Cube Sphere](../static/portfolio/cube-sphere.png)
+![Cube Sphere](../static/developing-my-portfolio/cube-sphere.png)
 
 To construct the sphere I went on side of the cube at a time, creating a grid of vertices then connecting them together into tris that then make faces. Create six of these sides and then I have a cube. Normalize each vertices position to the center and then I have a sphere.
-![Side of cube](../static/portfolio/square.png)
-![Cube](../static/portfolio/cube.png)
-![Cube Sphere](../static/portfolio/cube-sphere-wireframe.png)
+![Side of cube](../static/developing-my-portfolio/square.png)
+![Cube](../static/developing-my-portfolio/cube.png)
+![Cube Sphere](../static/developing-my-portfolio/cube-sphere-wireframe.png)
 
 ## Noise
 The next step is to deform the sphere using noise. I can layer more noise with smaller scales on top to create detail. This gives me large deformations in the terrain like mountains and valleys as well as small deformations that make up the detail.
-![Multilayer noise](../static/portfolio/multi-layer-noise.png)
+![Multilayer noise](../static/developing-my-portfolio/multi-layer-noise.png)
 
 To create an ocean I simply set a minimum elevation that every vertex has to be at.
-![Adding an ocean](../static/portfolio/ocean.png)
+![Adding an ocean](../static/developing-my-portfolio/ocean.png)
 
 To add more detail and interest to the planet I can use multiple different noise generators with different settings. I have the default noise generator that creates general waviness in the terrain. And then I have a ridge noise generator which is very similar to the default noise generator, except all the noise values are fed through the formula $$(1 - |sin(x)|)^2$$. This creates sharp ridges lines which form into mountain ranges.
-![Ridge noise generator](../static/portfolio/ridge-noise.png)
+![Ridge noise generator](../static/developing-my-portfolio/ridge-noise.png)
 
 ## Colour
 Adding colour is a fairly simple endeavour. I assign colour to each vertex based off of it elevation. A gradient is built of colours at different elevations; starting from the ocean colour, then going to the general ground colour, then the mountain colour and then the peak colour.
 
 The most challenging part of adding colour is creating the gradient. How do I smoothly get from one colour to another? The solution to this problem is so elegant. I treat colour as a 3D space where each axis is a different colour: red, green and blue. 
-![Colour 3D Space](../static/portfolio/colour-3d-space.png)
+![Colour 3D Space](../static/developing-my-portfolio/colour-3d-space.png)
 
 I then insert my two colours as points in this 3D space. All that's left to do is to draw a line and move along that line to fill in my gradient. Stringing multiple of these gradients together gives me the full gradient of different elevations.
-![Planet with colour](../static/portfolio/coloured-planet.png)
+![Planet with colour](../static/developing-my-portfolio/coloured-planet.png)
 __
 ## Performance
 I wanted the site to load quickly. I understood that it wouldn't be as good as some other sites since it generate and load multiple 3D elements which take a lot of compute, but I wanted it to be close. Initially, the planet took 2-3 seconds to generate on my desktop computer, which is fairly powerful. This meant that it would take 6-8 seconds for the page to load on mobile devices, which just wasn't going to work. So I used Firefox's profiler to profile the page load and noticed a few interesting things.

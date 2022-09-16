@@ -31,7 +31,7 @@ nav {
 
 .logo a {
 	text-decoration: none;
-	color: var(--heading-color);
+	color: var(--primary-color);
 }
 
 .logo h2 {
@@ -53,12 +53,12 @@ nav {
 
 .nav-item a {
 	text-decoration: none;
-	color: var(--sub-heading-color);
+	color: var(--secondary-color);
 	transition: color 0.15s;
 }
 
 .nav-item a:hover {
-	color: var(--heading-color)
+	color: var(--primary-color)
 }
 
 @media screen and (max-width: 600px) {

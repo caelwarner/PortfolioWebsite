@@ -156,11 +156,11 @@
 	font-size: 4.5rem;
 	line-height: 4rem;
 	margin-top: 0;
-	color: var(--sub-heading-color);
+	color: var(--secondary-color);
 }
 
 #home .heading h3 span {
-	color: var(--heading-color);
+	color: var(--primary-color);
 }
 
 .planet {
@@ -178,7 +178,7 @@
 	font-family: Helvetica, Arial, sans-serif;
 	font-style: italic;
 	font-weight: 100;
-	color: var(--sub-heading-color);
+	color: var(--secondary-color);
 }
 
 #projects {
@@ -210,19 +210,19 @@
 }
 
 .project .content h4 {
-	color: var(--sub-heading-color);
+	color: var(--secondary-color);
 	font-size: 1.5rem;
 }
 
 .project .content h6 {
-	color: var(--sub-heading-color);
+	color: var(--secondary-color);
 	font-size: 0.7rem;
 	margin: 0;
 	line-height: 0.1rem;
 }
 
 .project .content p {
-	color: var(--sub-heading-color);
+	color: var(--secondary-color);
 	margin-top: 1rem;
 	line-height: 1rem;
 }
@@ -242,7 +242,7 @@
 	font-weight: 500;
 	font-family: "Gotham", Helvetica, Arial, sans-serif;
 	background-color: transparent;
-	border: 0.1rem solid var(--heading-color);
+	border: 0.1rem solid var(--primary-color);
 	padding: 0.7em 2em;
 	border-radius: 10px;
 	color: white;
@@ -267,7 +267,7 @@
 	font-family: Helvetica, Arial, sans-serif;
 	font-style: italic;
 	font-weight: 100;
-	color: var(--sub-heading-color);
+	color: var(--secondary-color);
 }
 
 #about {
@@ -292,11 +292,11 @@
 #about .heading h4 {
 	font-size: 2.5rem;
 	margin-top: 0;
-	color: var(--sub-heading-color);
+	color: var(--secondary-color);
 }
 
 #about .heading h4 span {
-	color: var(--heading-color);
+	color: var(--primary-color);
 }
 
 #about .content {
@@ -304,7 +304,7 @@
 }
 
 #about .content p {
-	color: var(--sub-heading-color);
+	color: var(--secondary-color);
 	line-height: 1rem;
 	text-align: left;
 }
@@ -331,11 +331,11 @@
 #contact .heading h4 {
 	font-size: 2.5rem;
 	margin-top: 0;
-	color: var(--sub-heading-color);
+	color: var(--secondary-color);
 }
 
 #contact .heading h4 span {
-	color: var(--heading-color);
+	color: var(--primary-color);
 }
 
 #contact .content {
@@ -353,17 +353,17 @@
 }
 
 #contact .content li span {
-	color: var(--sub-heading-color);
+	color: var(--secondary-color);
 }
 
 #contact .content a {
 	text-decoration: none;
-	color: var(--sub-heading-color);
+	color: var(--secondary-color);
 	transition: color 0.15s;
 }
 
 #contact .content a:hover {
-	color: var(--heading-color);
+	color: var(--primary-color);
 }
 
 @media screen and (max-width: 480px) {

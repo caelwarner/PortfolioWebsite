@@ -13,14 +13,15 @@
 <style>
 :root {
 	--bg-color: #03020b;
-	--heading-color: #dff9fb;
-	--sub-heading-color: #66717f;
-	--dark-accent-color: #66717f;
+	--bg-light-color: #090811;
+	--primary-color: #dff9fb;
+	--secondary-color: #66717f;
+	--secondary-light-color: #919ba7;
 }
 
 html {
 	position: absolute;
-	width: 100vw;
+	width: 100%;
 }
 
 body {
@@ -40,13 +41,13 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
-	color: var(--heading-color);
+	color: var(--primary-color);
 }
 
 footer {
 	margin-top: 10rem;
 	margin-bottom: 2rem;
-	color: var(--sub-heading-color);
+	color: var(--secondary-color);
 }
 
 @media screen and (max-width: 480px) {
