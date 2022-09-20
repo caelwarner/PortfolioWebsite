@@ -4,7 +4,7 @@
 			<h1>Developing My Portfolio Site</h1>
 			<h3><span>\</span>The challenges I had to overcome</h3>
 		</div>
-		<img src="/developing-my-portfolio/portfolio-front-page.png" alt="Portfolio Front Page">
+		<expandable-image src="/developing-my-portfolio/portfolio-front-page.png" alt="Portfolio Front Page" />
 
 		<p class="margin-top-half">
 			My portfolio site is built using <NuxtLink to="https://nuxtjs.org/">Nuxt.js</NuxtLink> and
@@ -38,9 +38,9 @@
 			sphere.
 		</p>
 		<div class="img-group">
-			<div class="img-wrapper"><img src="/developing-my-portfolio/square.png" alt="Side of cube"><p>Tris forming square mesh</p></div>
-			<div class="img-wrapper"><img src="/developing-my-portfolio/cube.png" alt="Cube"><p>Square meshes assembled to make a cube</p></div>
-			<div class="img-wrapper"><img src="/developing-my-portfolio/cube-sphere-wireframe.png" alt="Cube Sphere"><p>Cube normalized into sphere</p></div>
+			<div class="img-wrapper"><expandable-image src="/developing-my-portfolio/square.png" alt="Side of cube" /><p>Tris forming square mesh</p></div>
+			<div class="img-wrapper"><expandable-image src="/developing-my-portfolio/cube.png" alt="Cube" /><p>Square meshes assembled to make a cube</p></div>
+			<div class="img-wrapper"><expandable-image src="/developing-my-portfolio/cube-sphere-wireframe.png" alt="Cube Sphere" /><p>Cube normalized into sphere</p></div>
 		</div>
 
 
@@ -51,14 +51,14 @@
 			deformations that make up the detail.
 		</p>
 		<div class="img-wrapper">
-			<img src="/developing-my-portfolio/multi-layer-noise.png" alt="Multilayer noise">
+			<expandable-image src="/developing-my-portfolio/multi-layer-noise.png" alt="Multilayer noise" />
 			<p>Multi-layer noise creating mountain like deformations</p>
 		</div>
 		<p class="margin-top">
 			To create an ocean I simply set a minimum elevation that every vertex has to be at.
 		</p>
 		<div class="img-wrapper">
-			<img src="/developing-my-portfolio/ocean.png" alt="Adding an ocean">
+			<expandable-image src="/developing-my-portfolio/ocean.png" alt="Adding an ocean" />
 			<p>Setting a minimum elevation to create an ocean</p>
 		</div>
 		<p class="margin-top">
@@ -68,7 +68,7 @@
 			fed through the formula <code>(1 - |sin(x)|)^2</code>. This creates sharp ridges lines which form into mountain
 			ranges.
 		</p>
-		<img src="/developing-my-portfolio/ridge-noise.png" alt="Ridge noise generator">
+		<expandable-image src="/developing-my-portfolio/ridge-noise.png" alt="Ridge noise generator" />
 
 
 		<h2 id="colour">Colour</h2>
@@ -83,7 +83,7 @@
 			different colour: red, green and blue.
 		</p>
 		<div class="img-wrapper">
-			<img src="/developing-my-portfolio/3d-color-space.jpg" alt="Colour 3D Space">
+			<expandable-image src="/developing-my-portfolio/3d-color-space.jpg" alt="Colour 3D Space" />
 			<p>3D representation of RGB colour space</p>
 		</div>
 		<p class="margin-top">
@@ -91,7 +91,7 @@
 			along that line to fill in my gradient. Stringing multiple of these gradients together gives me the full
 			gradient of different elevations.
 		</p>
-		<img src="/developing-my-portfolio/coloured-planet.png" alt="Planet with colour">
+		<expandable-image src="/developing-my-portfolio/coloured-planet.png" alt="Planet with colour" />
 
 
 		<h2 id="conclusion">Conclusion</h2>

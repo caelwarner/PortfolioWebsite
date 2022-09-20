@@ -26,7 +26,9 @@ export default {
 	css: [],
 
 	// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-	plugins: [],
+	plugins: [
+		{ src: "~/plugins/vue-expandable-image.js", mode: "client" }
+	],
 
 	// Auto import components: https://go.nuxtjs.dev/config-components
 	components: true,
@@ -45,7 +47,8 @@ export default {
 		transpile: [
 			"three",
 			"simplex-noise",
-			"alea"
+			"alea",
+			"vue-expandable-image"
 		]
 	}
 }

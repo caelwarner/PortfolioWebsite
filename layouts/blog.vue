@@ -95,10 +95,27 @@ a {
 	color: var(--secondary-color);
 }
 
-.img-group img {
+.img-group .expandable-image {
 	margin-bottom: 0;
 	max-width: 100%;
 	min-height: 75%;
+}
+
+.img-group img {
+	height: 100%;
 	object-fit: cover;
+}
+
+.expandable-image.expanded {
+	margin-top: 0;
+}
+
+.expandable-image {
+	margin-top: 1rem;
+}
+
+.expandable-image img {
+	max-width: 85vw !important;
+	margin-top: 0;
 }
 </style>

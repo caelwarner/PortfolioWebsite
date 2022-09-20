@@ -4,7 +4,7 @@
 			<h1>Improving Planet Generation Performance</h1>
 			<h3><span>\</span>And the foolish inefficiencies of JS</h3>
 		</div>
-		<img src="/improving-planet-performance/firefox-profiler.png" alt="Firefox Profiler">
+		<expandable-image src="/improving-planet-performance/firefox-profiler.png" alt="Firefox Profiler" />
 
 		<p class="margin-top-half">
 			I wanted the site to load quickly. I understood that it wouldn't be as quick as some other sites since it

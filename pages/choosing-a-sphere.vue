@@ -21,7 +21,7 @@
 			sphere. This would not work well for my purposes because I don't want the planet to have higher levels of
 			details near the poles.
 		</p>
-		<img src="/choosing-a-sphere/uv-sphere.png" alt="UV Sphere">
+		<expandable-image src="/choosing-a-sphere/uv-sphere.png" alt="UV Sphere" />
 
 
 		<h2 id="ico-sphere">Ico Sphere</h2>
@@ -31,7 +31,7 @@
 			number of faces by a factor of four. This gives me very little granularity and control of how detailed the
 			sphere is.
 		</p>
-		<img src="/choosing-a-sphere/ico-sphere.png" alt="Ico Sphere">
+		<expandable-image src="/choosing-a-sphere/ico-sphere.png" alt="Ico Sphere" />
 
 
 		<h2 id="cube-sphere">Cube-based Sphere</h2>
@@ -41,7 +41,7 @@
 			seams where the sides of the cube have come together. It also gives me a high granularity of detail as I can
 			divide the sides of the cube into as many faces as I'd like.
 		</p>
-		<img src="/choosing-a-sphere/cube-sphere.png" alt="Cube Sphere">
+		<expandable-image src="/choosing-a-sphere/cube-sphere.png" alt="Cube Sphere" />
 
 		<h2 id="conclusion">Conclusion</h2>
 		<p>
