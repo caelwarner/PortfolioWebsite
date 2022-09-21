@@ -61,7 +61,7 @@ nav {
 	color: var(--primary-color)
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 992px) {
 	nav {
 		font-size: 1.4rem;
 		margin-left: 3rem;

@@ -18,6 +18,8 @@ export default {
 .page {
 	max-width: 50rem;
 	margin: auto;
+	padding-left: 3rem;
+	padding-right: 3rem;
 }
 
 .heading {

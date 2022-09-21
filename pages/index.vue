@@ -129,8 +129,13 @@
 	</div>
 </template>
 
-<style scoped>
+<script>
+export default {
+	layout: "default"
+}
+</script>
 
+<style scoped>
 #home {
 	display: flex;
 	flex-direction: row;
@@ -206,6 +211,8 @@
 
 .project .content h2 {
 	font-size: 2rem;
+	font-weight: bold;
+	margin-top: 0;
 	margin-bottom: 0.4rem;
 }
 
@@ -285,6 +292,7 @@
 
 #about .heading h2 {
 	font-size: 4rem;
+	font-weight: bold;
 	margin-top: 2rem;
 	margin-bottom: 0;
 }
@@ -324,6 +332,7 @@
 
 #contact .heading h2 {
 	font-size: 4rem;
+	font-weight: bold;
 	margin-top: 2rem;
 	margin-bottom: 0;
 }
@@ -366,21 +375,7 @@
 	color: var(--primary-color);
 }
 
-@media screen and (max-width: 480px) {
-	#home {
-		flex-direction: column;
-	}
-
-	#home .heading {
-		width: min-content;
-		margin-left: 0;
-		margin-top: -1rem;
-	}
-
-	.planet {
-		width: 100vw;
-	}
-
+@media screen and (max-width: 768px) {
 	.project {
 		flex-direction: column;
 	}
@@ -389,12 +384,6 @@
 		margin-right: 0;
 		margin-top: 4rem;
 		margin-bottom: -4rem;
-	}
-
-	.laptop {
-		width: 38rem;
-		height: 38rem;
-		max-width: 100vw;
 	}
 
 	#about {
@@ -426,6 +415,45 @@
 	#contact .content ul {
 		margin-top: 0;
 		padding-left: 0;
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.laptop {
+		width: 38rem;
+		height: 38rem;
+		max-width: 100vw;
+	}
+}
+
+@media screen and (min-width: 992px) and (max-width: 1600px) {
+	.laptop {
+		width: 50rem;
+		height: 50rem;
+		max-width: 100vw;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	#home {
+		flex-direction: column;
+	}
+
+	#home .heading {
+		width: min-content;
+		margin-left: 0;
+		margin-top: -1rem;
+	}
+
+	.planet {
+		width: 100vw;
+	}
+}
+
+@media screen and (max-width: 1600px) {
+	.project .content {
+		margin-left: 4rem;
+		margin-right: 0;
 	}
 }
 

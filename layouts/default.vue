@@ -50,7 +50,7 @@ footer {
 	color: var(--secondary-color);
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
 	:root {
 		font-size: 12px;
 	}
@@ -61,6 +61,12 @@ footer {
 
 	.desktop {
 		display: none;
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+	:root {
+		font-size: 14px;
 	}
 }
 </style>
