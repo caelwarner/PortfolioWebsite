@@ -17,7 +17,7 @@ The third option is to start with a cube, and then normalize ever vertices posit
 To construct the sphere I went on side of the cube at a time, creating a grid of vertices then connecting them together into tris that then make faces. Create six of these sides and then I have a cube. Normalize each vertices position to the center and then I have a sphere.
 ![Side of cube](../static/developing-my-portfolio/square.png)
 ![Cube](../static/developing-my-portfolio/cube.png)
-![Cube Sphere](../static/developing-my-portfolio/cube-sphere-wireframe.png)
+![Cube Sphere](../static/developing-my-portfolio/normalized-sphere-wireframe.png)
 
 ## Noise
 The next step is to deform the sphere using noise. I can layer more noise with smaller scales on top to create detail. This gives me large deformations in the terrain like mountains and valleys as well as small deformations that make up the detail.

@@ -22,13 +22,17 @@
 			can summarize the whole process in a couple of sentences the actual process went through many more
 			trials and tribulations like any good programming project.
 		</p>
+		<div class="img-group">
+			<div class="img-wrapper"><expandable-image src="/developing-my-portfolio/planet-red.png" alt="Red Planet" /></div>
+			<div class="img-wrapper"><expandable-image src="/developing-my-portfolio/planet-gold.png" alt="Gold Planet" /></div>
+		</div>
 
 
 		<h2 id="creating-the-sphere">Creating the Sphere</h2>
 		<p>
 			Creating the sphere was the first challenge to overcome. There are many different ways of arranging vertices
 			and faces to create a sphere, each coming with their own advantages and disadvantages. I went with a
-			cube-based sphere where I start with a cube and then morph it to make a sphere. Read how I choose which type
+			normalized sphere where I start with a cube and then morph it to make a sphere. Read how I choose which type
 			of sphere to use <NuxtLink to="/choosing-a-sphere">here</NuxtLink>.
 		</p>
 		<p>
@@ -40,7 +44,7 @@
 		<div class="img-group">
 			<div class="img-wrapper"><expandable-image src="/developing-my-portfolio/square.png" alt="Side of cube" /><p>Tris forming square mesh</p></div>
 			<div class="img-wrapper"><expandable-image src="/developing-my-portfolio/cube.png" alt="Cube" /><p>Square meshes assembled to make a cube</p></div>
-			<div class="img-wrapper"><expandable-image src="/developing-my-portfolio/cube-sphere-wireframe.png" alt="Cube Sphere" /><p>Cube normalized into sphere</p></div>
+			<div class="img-wrapper"><expandable-image src="/developing-my-portfolio/normalized-sphere-wireframe.png" alt="Normalized Sphere" /><p>Cube normalized into sphere</p></div>
 		</div>
 
 
@@ -65,10 +69,21 @@
 			To add more detail and interest to the planet I can use multiple different noise generators with different
 			settings. I have the default noise generator that creates general waviness in the terrain. And then I have a
 			ridge noise generator which is very similar to the default noise generator, except all the noise values are
-			fed through the formula <code>(1 - |sin(x)|)^2</code>. This creates sharp ridges lines which form into mountain
-			ranges.
+			fed through the formula <code>y = (1 - |sin(x)|)^2</code>.
 		</p>
-		<expandable-image src="/developing-my-portfolio/ridge-noise.png" alt="Ridge noise generator" />
+		<div class="img-wrapper">
+			<expandable-image src="/developing-my-portfolio/ridge-formula.png" alt="Ridge formula" />
+			<p>Ridge formula shown on a graph</p>
+		</div>
+
+		<p>
+			Once the formula is graphed, you can see how it pushes the noise values into sharp peaks and wide troughs.
+			This creates sharp ridges lines which form into expansive mountain ranges.
+		</p>
+		<div class="img-wrapper">
+			<expandable-image src="/developing-my-portfolio/ridge-noise.png" alt="Ridge noise generator" />
+			<p>Planet with only the ridge noise generator applied</p>
+		</div>
 
 
 		<h2 id="colour">Colour</h2>
@@ -94,13 +109,22 @@
 		<expandable-image src="/developing-my-portfolio/coloured-planet.png" alt="Planet with colour" />
 
 
-		<h2 id="conclusion">Conclusion</h2>
+		<h2 id="final-steps">Final Steps</h2>
 		<p>
-			See how I improved the performance of the planet by over a factor of 10
-			<NuxtLink to="/improving-planet-performance"> here</NuxtLink>.
+			After completing the planet I was able to integrate it into this Vue.js site. I then later switched to using
+			Nuxt.js for performance improvements. With the framework shift and just general code optimizations I was
+			able to improve the planet generation performance by a full order of magnitude. Read my process
+			<NuxtLink to="/improving-planet-performance">here</NuxtLink>. The final thing left to do was polishing the
+			site which of course took way longer than expected.
 		</p>
 
-		<i>Add a proper conclusion.</i>
+		<h2 id="conclusion">Conclusion</h2>
+		<p>
+			Through my journey of creating a procedurally generated 3D planet that renders on a web page I've learnt
+			many things like some of the unique quirks of JavaScript and how those effect performance, and how to use
+			TypeScript in vanilla JS and in Vue.js. And I've ended up with this professional portfolio and blog site. I
+			couldn't be happier with the outcome.
+		</p>
 	</div>
 </template>
 

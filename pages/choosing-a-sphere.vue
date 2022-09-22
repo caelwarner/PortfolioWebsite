@@ -4,8 +4,7 @@
 			<h1>Choosing a Sphere</h1>
 			<h3><span>\</span>Appropriate for a planet</h3>
 		</div>
-
-		<i>Image Here</i>
+		<expandable-image src="/choosing-a-sphere/spheres-comparison.png" alt="Spheres Comparison" />
 
 		<p class="margin-top">
 			Choosing what type of sphere to use was no easy task. I needed a sphere that had an even distribution of
@@ -34,18 +33,18 @@
 		<expandable-image src="/choosing-a-sphere/ico-sphere.png" alt="Ico Sphere" />
 
 
-		<h2 id="cube-sphere">Cube-based Sphere</h2>
+		<h2 id="normalized-sphere">Normalized Sphere</h2>
 		<p>
 			The third option is to start with a cube, and then normalize every vertices position from the center. This
 			creates a sphere has a very even distribution of detail, with only slightly higher level of detail near the
 			seams where the sides of the cube have come together. It also gives me a high granularity of detail as I can
 			divide the sides of the cube into as many faces as I'd like.
 		</p>
-		<expandable-image src="/choosing-a-sphere/cube-sphere.png" alt="Cube Sphere" />
+		<expandable-image src="/choosing-a-sphere/normalized-sphere.png" alt="Normalized Sphere" />
 
 		<h2 id="conclusion">Conclusion</h2>
 		<p>
-			Using a cube-based sphere turned out great. It satisfied all of my requirements and the math needed to
+			Using a normalized sphere turned out great. It satisfied all of my requirements and the math needed to
 			create it was fairly simple. The only downside is that there is a small artifact along the seams where they
 			sometimes just don't quite connect. There is a solution that solves the problem, which is to merge vertices
 			that are really close to each other, connecting the small gaps. However, and of course there's always a

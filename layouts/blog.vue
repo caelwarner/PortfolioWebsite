@@ -100,7 +100,7 @@ a {
 .img-group .expandable-image {
 	margin-bottom: 0;
 	max-width: 100%;
-	min-height: 75%;
+	min-height: 80%;
 }
 
 .img-group img {
