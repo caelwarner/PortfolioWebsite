@@ -4,7 +4,7 @@
 			<h1>Developing My Portfolio Site</h1>
 			<h3><span>\</span>The challenges I had to overcome</h3>
 		</div>
-		<expandable-image src="/developing-my-portfolio/portfolio-front-page.png" alt="Portfolio Front Page" />
+		<expandable-image src="/blog/developing-my-portfolio/portfolio-front-page.png" alt="Portfolio Front Page" />
 
 		<p class="margin-top-half">
 			My portfolio site is built using <NuxtLink to="https://nuxtjs.org/">Nuxt.js</NuxtLink> and
@@ -23,8 +23,8 @@
 			trials and tribulations like any good programming project.
 		</p>
 		<div class="img-group">
-			<div class="img-wrapper"><expandable-image src="/developing-my-portfolio/planet-peach.png" alt="Red Planet" /></div>
-			<div class="img-wrapper"><expandable-image src="/developing-my-portfolio/planet-teal.png" alt="Gold Planet" /></div>
+			<div class="img-wrapper"><expandable-image src="/blog/developing-my-portfolio/planet-peach.png" alt="Red Planet" /></div>
+			<div class="img-wrapper"><expandable-image src="/blog/developing-my-portfolio/planet-teal.png" alt="Gold Planet" /></div>
 		</div>
 
 
@@ -33,7 +33,7 @@
 			Creating the sphere was the first challenge to overcome. There are many different ways of arranging vertices
 			and faces to create a sphere, each coming with their own advantages and disadvantages. I went with a
 			normalized sphere where I start with a cube and then morph it to make a sphere. Read how I choose which type
-			of sphere to use <NuxtLink to="/choosing-a-sphere">here</NuxtLink>.
+			of sphere to use <NuxtLink to="/blog/choosing-a-sphere">here</NuxtLink>.
 		</p>
 		<p>
 			To construct the sphere I went one side of the cube at a time, creating a grid of vertices then connecting
@@ -42,9 +42,9 @@
 			sphere.
 		</p>
 		<div class="img-group">
-			<div class="img-wrapper"><expandable-image src="/developing-my-portfolio/square.png" alt="Side of cube" /><p>Tris forming square mesh</p></div>
-			<div class="img-wrapper"><expandable-image src="/developing-my-portfolio/cube.png" alt="Cube" /><p>Square meshes assembled to make a cube</p></div>
-			<div class="img-wrapper"><expandable-image src="/developing-my-portfolio/normalized-sphere-wireframe.png" alt="Normalized Sphere" /><p>Cube normalized into sphere</p></div>
+			<div class="img-wrapper"><expandable-image src="/blog/developing-my-portfolio/square.png" alt="Side of cube" /><p>Tris forming square mesh</p></div>
+			<div class="img-wrapper"><expandable-image src="/blog/developing-my-portfolio/cube.png" alt="Cube" /><p>Square meshes assembled to make a cube</p></div>
+			<div class="img-wrapper"><expandable-image src="/blog/developing-my-portfolio/normalized-sphere-wireframe.png" alt="Normalized Sphere" /><p>Cube normalized into sphere</p></div>
 		</div>
 
 
@@ -55,14 +55,14 @@
 			deformations that make up the detail.
 		</p>
 		<div class="img-wrapper">
-			<expandable-image src="/developing-my-portfolio/multi-layer-noise.png" alt="Multilayer noise" />
+			<expandable-image src="/blog/developing-my-portfolio/multi-layer-noise.png" alt="Multilayer noise" />
 			<p>Multi-layer noise creating mountain like deformations</p>
 		</div>
 		<p class="margin-top">
 			To create an ocean I simply set a minimum elevation that every vertex has to be at.
 		</p>
 		<div class="img-wrapper">
-			<expandable-image src="/developing-my-portfolio/ocean.png" alt="Adding an ocean" />
+			<expandable-image src="/blog/developing-my-portfolio/ocean.png" alt="Adding an ocean" />
 			<p>Setting a minimum elevation to create an ocean</p>
 		</div>
 		<p class="margin-top">
@@ -72,7 +72,7 @@
 			fed through the formula <code>y = (1 - |sin(x)|)^2</code>.
 		</p>
 		<div class="img-wrapper">
-			<expandable-image src="/developing-my-portfolio/ridge-formula.png" alt="Ridge formula" />
+			<expandable-image src="/blog/developing-my-portfolio/ridge-formula.png" alt="Ridge formula" />
 			<p>Ridge formula shown on a graph</p>
 		</div>
 
@@ -81,7 +81,7 @@
 			This creates sharp ridges lines which form into expansive mountain ranges.
 		</p>
 		<div class="img-wrapper">
-			<expandable-image src="/developing-my-portfolio/ridge-noise.png" alt="Ridge noise generator" />
+			<expandable-image src="/blog/developing-my-portfolio/ridge-noise.png" alt="Ridge noise generator" />
 			<p>Planet with only the ridge noise generator applied</p>
 		</div>
 
@@ -98,7 +98,7 @@
 			different colour: red, green and blue.
 		</p>
 		<div class="img-wrapper">
-			<expandable-image src="/developing-my-portfolio/3d-color-space.jpg" alt="Colour 3D Space" />
+			<expandable-image src="/blog/developing-my-portfolio/3d-color-space.jpg" alt="Colour 3D Space" />
 			<p>3D representation of RGB colour space</p>
 		</div>
 		<p class="margin-top">
@@ -106,7 +106,7 @@
 			along that line to fill in my gradient. Stringing multiple of these gradients together gives me the full
 			gradient of different elevations.
 		</p>
-		<expandable-image src="/developing-my-portfolio/coloured-planet.png" alt="Planet with colour" />
+		<expandable-image src="/blog/developing-my-portfolio/coloured-planet.png" alt="Planet with colour" />
 
 
 		<h2 id="final-steps">Final Steps</h2>
@@ -114,7 +114,7 @@
 			After completing the planet I was able to integrate it into this Vue.js site. I then later switched to using
 			Nuxt.js for performance improvements. With the framework shift and just general code optimizations I was
 			able to improve the planet generation performance by a full order of magnitude. Read my process
-			<NuxtLink to="/improving-planet-performance">here</NuxtLink>. The final thing left to do was polishing the
+			<NuxtLink to="/blog/improving-planet-performance">here</NuxtLink>. The final thing left to do was polishing the
 			site which of course took way longer than expected.
 		</p>
 

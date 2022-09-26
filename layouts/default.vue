@@ -44,6 +44,24 @@ body {
 	color: var(--primary-color);
 }
 
+button {
+	cursor: pointer;
+	font-size: 0.8rem;
+	font-weight: 500;
+	font-family: "Gotham", Helvetica, Arial, sans-serif;
+	background-color: transparent;
+	border: 0.1rem solid var(--primary-color);
+	padding: 0.7em 2em;
+	border-radius: 10px;
+	color: white;
+	transition: border-color 0.25s;
+	margin-right: 0.4rem;
+}
+
+button:hover {
+	border-color: #81dee6;
+}
+
 footer {
 	margin-top: 10rem;
 	margin-bottom: 2rem;

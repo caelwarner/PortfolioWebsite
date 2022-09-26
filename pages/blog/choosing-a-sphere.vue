@@ -4,7 +4,7 @@
 			<h1>Choosing a Sphere</h1>
 			<h3><span>\</span>Appropriate for a planet</h3>
 		</div>
-		<expandable-image src="/choosing-a-sphere/spheres-comparison.png" alt="Spheres Comparison" />
+		<expandable-image src="/blog/choosing-a-sphere/spheres-comparison.png" alt="Spheres Comparison" />
 
 		<p class="margin-top">
 			Choosing what type of sphere to use was no easy task. I needed a sphere that had an even distribution of
@@ -20,7 +20,7 @@
 			sphere. This would not work well for my purposes because I don't want the planet to have higher levels of
 			details near the poles.
 		</p>
-		<expandable-image src="/choosing-a-sphere/uv-sphere.png" alt="UV Sphere" />
+		<expandable-image src="/blog/choosing-a-sphere/uv-sphere.png" alt="UV Sphere" />
 
 
 		<h2 id="ico-sphere">Ico Sphere</h2>
@@ -30,7 +30,7 @@
 			number of faces by a factor of four. This gives me very little granularity and control of how detailed the
 			sphere is.
 		</p>
-		<expandable-image src="/choosing-a-sphere/ico-sphere.png" alt="Ico Sphere" />
+		<expandable-image src="/blog/choosing-a-sphere/ico-sphere.png" alt="Ico Sphere" />
 
 
 		<h2 id="normalized-sphere">Normalized Sphere</h2>
@@ -40,7 +40,7 @@
 			seams where the sides of the cube have come together. It also gives me a high granularity of detail as I can
 			divide the sides of the cube into as many faces as I'd like.
 		</p>
-		<expandable-image src="/choosing-a-sphere/normalized-sphere.png" alt="Normalized Sphere" />
+		<expandable-image src="/blog/choosing-a-sphere/normalized-sphere.png" alt="Normalized Sphere" />
 
 		<h2 id="conclusion">Conclusion</h2>
 		<p>

@@ -25,11 +25,11 @@
 					<p>A community lead mod to expand on Minecraft in Java. It's currently amassed over 4 million
 						downloads.</p>
 					<div class="buttons">
-						<NuxtLink to="https://www.curseforge.com/minecraft/mc-mods/infernal-expansion" target="_blank">
-							<button class="button">View Project</button>
+						<NuxtLink to="/project/infernal-expansion">
+							<button>View Project</button>
 						</NuxtLink>
 						<NuxtLink to="https://github.com/infernalexp/Infernal-Expansion" target="_blank">
-							<button class="button">View Source</button>
+							<button>View Source</button>
 						</NuxtLink>
 					</div>
 				</div>
@@ -51,9 +51,9 @@
 					<p>A fullstack web app made with Python and VueJS to connect eye doctors and patients for easier
 						diagnoses of eye diseases.</p>
 					<div class="buttons">
-						<a>
-							<button class="button">Unreleased</button>
-						</a>
+						<NuxtLink to="/project/teleaeye">
+							<button>View Project</button>
+						</NuxtLink>
 					</div>
 				</div>
 
@@ -74,12 +74,12 @@
 					<p>A small addon module for FoundryVTT, a virtual table top for games like D&D. Made in
 						Javascript.</p>
 					<div class="buttons">
-						<NuxtLink to="https://foundryvtt.com/packages/darkness-activated-tiles" target="_blank">
-							<button class="button">View Project</button>
+						<NuxtLink to="/project/darkness-activated-tiles">
+							<button>View Project</button>
 						</NuxtLink>
-						<NuxtLink to="https://caelwarner.com/gh/DarknessActivatedTiles" target="_blank">
-							<button class="button">View Source</button>
-						</NuxtLink>
+						<a href="https://caelwarner.com/gh/DarknessActivatedTiles" target="_blank">
+							<button>View Source</button>
+						</a>
 					</div>
 				</div>
 
@@ -101,12 +101,12 @@
 						This professional portfolio site enhanced with procedurally generated 3D elements
 					</p>
 					<div class="buttons">
-						<NuxtLink to="/developing-my-portfolio" target="_blank">
-							<button class="button">View Writeup</button>
+						<NuxtLink to="/project/portfolio">
+							<button>View Project</button>
 						</NuxtLink>
-						<NuxtLink to="https://caelwarner.com/gh/PortfolioWebsite" target="_blank">
-							<button class="button">View Source</button>
-						</NuxtLink>
+						<a href="https://caelwarner.com/gh/PortfolioWebsite" target="_blank">
+							<button>View Source</button>
+						</a>
 					</div>
 				</div>
 
@@ -268,24 +268,6 @@ export default {
 
 .project a {
 	margin-top: 0.6rem;
-}
-
-.project .button {
-	cursor: pointer;
-	font-size: 0.8rem;
-	font-weight: 500;
-	font-family: "Gotham", Helvetica, Arial, sans-serif;
-	background-color: transparent;
-	border: 0.1rem solid var(--primary-color);
-	padding: 0.7em 2em;
-	border-radius: 10px;
-	color: white;
-	transition: border-color 0.25s;
-	margin-right: 0.4rem;
-}
-
-.project .button:hover {
-	border-color: #81dee6;
 }
 
 .laptop {
