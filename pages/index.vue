@@ -25,12 +25,12 @@
 					<p>A community lead mod to expand on Minecraft in Java. It's currently amassed over 4 million
 						downloads.</p>
 					<div class="buttons">
-						<a href="https://www.curseforge.com/minecraft/mc-mods/infernal-expansion" target="_blank">
+						<NuxtLink to="https://www.curseforge.com/minecraft/mc-mods/infernal-expansion" target="_blank">
 							<button class="button">View Project</button>
-						</a>
-						<a href="https://github.com/infernalexp/Infernal-Expansion" target="_blank">
+						</NuxtLink>
+						<NuxtLink to="https://github.com/infernalexp/Infernal-Expansion" target="_blank">
 							<button class="button">View Source</button>
-						</a>
+						</NuxtLink>
 					</div>
 				</div>
 
@@ -74,18 +74,45 @@
 					<p>A small addon module for FoundryVTT, a virtual table top for games like D&D. Made in
 						Javascript.</p>
 					<div class="buttons">
-						<a href="https://foundryvtt.com/packages/darkness-activated-tiles" target="_blank">
+						<NuxtLink to="https://foundryvtt.com/packages/darkness-activated-tiles" target="_blank">
 							<button class="button">View Project</button>
-						</a>
-						<a href="https://github.com/caelwarner/darkness-activated-tiles" target="_blank">
+						</NuxtLink>
+						<NuxtLink to="https://caelwarner.com/gh/DarknessActivatedTiles" target="_blank">
 							<button class="button">View Source</button>
-						</a>
+						</NuxtLink>
 					</div>
 				</div>
 
 				<div class="laptop">
 					<client-only>
 						<Laptop texture="index/darkness-activated-tiles.png" />
+
+						<template slot="placeholder">
+							<h3 class="laptop-loading">Loading...</h3>
+						</template>
+					</client-only>
+				</div>
+			</div>
+			<div class="project">
+				<div class="content">
+					<h2 class="name">caelwarner.com</h2>
+					<h6 class="date">Jan 2022 & Sept 2022</h6>
+					<p>
+						This professional portfolio site enhanced with procedurally generated 3D elements
+					</p>
+					<div class="buttons">
+						<NuxtLink to="/developing-my-portfolio" target="_blank">
+							<button class="button">View Writeup</button>
+						</NuxtLink>
+						<NuxtLink to="https://caelwarner.com/gh/PortfolioWebsite" target="_blank">
+							<button class="button">View Source</button>
+						</NuxtLink>
+					</div>
+				</div>
+
+				<div class="laptop">
+					<client-only>
+						<Laptop texture="index/portfolio-front-page.png" />
 
 						<template slot="placeholder">
 							<h3 class="laptop-loading">Loading...</h3>

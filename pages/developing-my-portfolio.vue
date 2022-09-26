@@ -23,8 +23,8 @@
 			trials and tribulations like any good programming project.
 		</p>
 		<div class="img-group">
-			<div class="img-wrapper"><expandable-image src="/developing-my-portfolio/planet-red.png" alt="Red Planet" /></div>
-			<div class="img-wrapper"><expandable-image src="/developing-my-portfolio/planet-gold.png" alt="Gold Planet" /></div>
+			<div class="img-wrapper"><expandable-image src="/developing-my-portfolio/planet-peach.png" alt="Red Planet" /></div>
+			<div class="img-wrapper"><expandable-image src="/developing-my-portfolio/planet-teal.png" alt="Gold Planet" /></div>
 		</div>
 
 
@@ -133,9 +133,3 @@ export default {
 	layout: "blog"
 }
 </script>
-
-<style>
-body {
-	background-color: var(--bg-light-color);
-}
-</style>

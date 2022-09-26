@@ -44,9 +44,3 @@ export default {
 	layout: "blog"
 }
 </script>
-
-<style>
-body {
-	background-color: var(--bg-light-color);
-}
-</style>

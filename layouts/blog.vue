@@ -10,6 +10,9 @@ import DefaultLayout from "~/layouts/default.vue";
 export default {
 	components: {
 		DefaultLayout
+	},
+	mounted() {
+		document.body.style.backgroundColor = "#090811";
 	}
 };
 </script>
