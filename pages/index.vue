@@ -22,8 +22,10 @@
 
 					<h2 class="name">Infernal Expansion</h2>
 					<h6 class="date">Oct 2020 - Present</h6>
-					<p>A community lead mod to expand on Minecraft in Java. It's currently amassed over 4 million
-						downloads.</p>
+					<p>
+						A community lead mod to expand on Minecraft in Java. It's currently amassed over 6.5 million
+						downloads.
+					</p>
 					<div class="buttons">
 						<NuxtLink to="/project/infernal-expansion">
 							<button>View Project</button>
@@ -48,8 +50,10 @@
 				<div class="content">
 					<h2 class="name">TeleAEye</h2>
 					<h6 class="date">Jan 2021</h6>
-					<p>A fullstack web app made with Python and VueJS to connect eye doctors and patients for easier
-						diagnoses of eye diseases.</p>
+					<p>
+						A fullstack web app made with Python and VueJS to connect eye doctors and patients for easier
+						diagnoses of eye diseases.
+					</p>
 					<div class="buttons">
 						<NuxtLink to="/project/teleaeye">
 							<button>View Project</button>
@@ -71,8 +75,10 @@
 				<div class="content">
 					<h2 class="name">Darkness Activated Tiles</h2>
 					<h6 class="date">June 2021</h6>
-					<p>A small addon module for FoundryVTT, a virtual table top for games like D&D. Made in
-						Javascript.</p>
+					<p>
+						A small addon module for FoundryVTT, a virtual table top for games like D&D with close to 100
+						thousand downloads. Made in Javascript.
+					</p>
 					<div class="buttons">
 						<NuxtLink to="/project/darkness-activated-tiles">
 							<button>View Project</button>

@@ -3,8 +3,6 @@
 		{ label: 'Project Page', link: 'https://curseforge.com/minecraft/mc-mods/infernal-expansion' },
 		{ label: 'Source Code', link: 'https://github.com/infernalstudios/Infernal-Expansion' },
 		{ label: 'Contribution Stats', link: 'https://github.com/infernalstudios/Infernal-Expansion/graphs/contributors' }
-	]" :blogPosts="[
-		{ title: 'My Involvement', link: '/my-involvement', date: '2022/09/26' }
 	]">
 		<p>
 			Infernal Expansion is a modification, or mod, for Minecraft written in Java that expands on the base game.
