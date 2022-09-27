@@ -1,8 +1,14 @@
 <template>
 	<div class="project">
-		<div class="content">
+		<div class="heading mobile">
 			<h1>{{ this.title }}</h1>
 			<h3><span>\</span>{{ this.subtitle }}</h3>
+		</div>
+		<div class="content">
+			<div class="heading desktop">
+				<h1>{{ this.title }}</h1>
+				<h3><span>\</span>{{ this.subtitle }}</h3>
+			</div>
 			<div class="buttons">
 				<a :href="button.link" target="_blank" v-for="button in this.buttons">
 					<button>{{ button.label }}</button>
@@ -55,20 +61,20 @@ export default {
 	margin-right: 3rem;
 }
 
-.content h1 {
+.heading h1 {
 	text-align: left;
 	font-size: 3.5rem;
 	margin-bottom: 0;
 }
 
-.content h3 {
+.heading h3 {
 	text-align: left;
 	font-size: 2.2rem;
 	margin-top: 0;
 	color: var(--secondary-color);
 }
 
-.content h3 span {
+.heading h3 span {
 	color: var(--primary-color);
 }
 
@@ -116,6 +122,47 @@ export default {
 .blog-post .date {
 	font-size: 0.8rem;
 	margin-right: 1rem;
+}
+
+@media screen and (max-width: 1100px) {
+	.mobile {
+		display: initial;
+	}
+
+	.desktop {
+		display: none;
+	}
+
+	.project {
+		flex-direction: column;
+		max-width: 90vw;
+	}
+
+	.heading {
+		order: 0;
+	}
+
+	.image {
+		order: 1;
+		margin-top: -1rem;
+		margin-bottom: 2rem;
+	}
+
+	.image img {
+		max-width: 100%;
+	}
+
+	.content {
+		order: 2;
+		align-self: center;
+		margin-right: 0;
+	}
+}
+
+@media screen and (min-width: 1100px) and (max-width: 1600px) {
+	.image img {
+		max-width: 38rem;
+	}
 }
 
 </style>
