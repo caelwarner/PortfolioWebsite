@@ -1,5 +1,5 @@
 <template>
-	<div class="page">
+	<div class="blog">
 		<div class="heading">
 			<h1>Choosing a Sphere</h1>
 			<h3><span>\</span>Appropriate for a planet</h3>

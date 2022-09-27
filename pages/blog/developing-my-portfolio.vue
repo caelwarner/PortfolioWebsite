@@ -1,5 +1,5 @@
 <template>
-	<div class="page">
+	<div class="blog">
 		<div class="heading">
 			<h1>Developing My Portfolio Site</h1>
 			<h3><span>\</span>The challenges I had to overcome</h3>

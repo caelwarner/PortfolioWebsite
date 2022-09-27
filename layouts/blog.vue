@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style>
-.page {
+.blog {
 	max-width: 50rem;
 	margin: auto;
 	padding-left: 3rem;

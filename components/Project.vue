@@ -38,7 +38,6 @@ export default {
 		"buttons",
 		"blogPosts"
 	],
-
 	mounted() {
 		document.body.style.backgroundColor = "#090811";
 	}

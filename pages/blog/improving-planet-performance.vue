@@ -1,5 +1,5 @@
 <template>
-	<div class="page">
+	<div class="blog">
 		<div class="heading">
 			<h1>Improving Planet Generation Performance</h1>
 			<h3><span>\</span>And the foolish inefficiencies of JS</h3>
