@@ -1,6 +1,6 @@
 <template>
 	<Project title="TeleAEye" subtitle="Diagnosing Eye Disease" imgSrc="/index/teleaeye.png" :buttons="[
-		{ label: 'Unreleased', link: '' }
+		{ label: 'Unreleased', link: 'javascript:void(0);' }
 	]">
 		<p>
 			TeleAEye is an online platform and camera that helps eye doctors diagnose eye disease. It uses a cheap

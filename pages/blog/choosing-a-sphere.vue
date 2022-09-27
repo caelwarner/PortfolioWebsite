@@ -10,7 +10,6 @@
 			Choosing what type of sphere to use was no easy task. I needed a sphere that had an even distribution of
 			detail and a high level of control over the resolution of the mesh.
 		</p>
-		<i>Need more of an introduction here</i>
 
 		<h2 id="uv-sphere">UV Sphere</h2>
 		<p>

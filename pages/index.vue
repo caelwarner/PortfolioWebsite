@@ -30,9 +30,9 @@
 						<NuxtLink to="/project/infernal-expansion">
 							<button>View Project</button>
 						</NuxtLink>
-						<NuxtLink to="https://github.com/infernalexp/Infernal-Expansion" target="_blank">
+						<a href="https://github.com/infernalexp/Infernal-Expansion" target="_blank">
 							<button>View Source</button>
-						</NuxtLink>
+						</a>
 					</div>
 				</div>
 
