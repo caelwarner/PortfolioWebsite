@@ -6,10 +6,10 @@
 	]">
 		<p>
 			Infernal Expansion is a modification, or mod, for Minecraft written in Java that expands on the base game.
-			It's currently at over 6.5 million downloads This mod is developed by a small team of around five people but
-			supported by a much larger community. We get ideas, game design feedback and even art assets from our
-			community. We use Git as our VCS and then host the repo on GitHub. Our git repo has over 1100 commits made
-			and almost 200 pull requests.
+			It's currently at over 6.5 million downloads. This mod is developed by a small team of around five people
+			but it's supported by a much larger community. We get ideas, game design feedback and even art assets from
+			our community. We use Git as our VCS and GitHub to host the repo. Our git repo has over 1100 commits
+			made and almost 200 pull requests.
 		</p>
 		<p>
 			Since our team is so small each of us is an integral part of the whole equation, we all have to pull our

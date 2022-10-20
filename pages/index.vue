@@ -135,12 +135,12 @@
 			</div>
 
 			<div class="content">
-				<p>I'm a self taught developer with over 5 years of experience. I can program in a wide range of
-					languages like Java, Python and Javascript. <br /> I've used a large collection of frameworks and
-					libraries like Forge and Fabric in Java for mod development for Minecraft. Flask and Ariadne in
-					Python for creating web app backends. VueJS and ThreeJS for creating websites just like this one. I
-					love to learn new technologies and work with new people. If you'd like to contact me feel free with
-					the details below.</p>
+				<p>I'm a self taught developer with over 6 years of experience. I'm experienced in a wide range of
+					languages including Java, Python, C++ and Typescript. <br /> I've used a large collection of
+					frameworks and libraries like Forge and Fabric in Java for mod development for Minecraft. Flask and
+					Ariadne in Python for creating web app backends. VueJS and ThreeJS for creating websites just like
+					this one. I love to learn new technologies and work with new people. If you'd like to contact me
+					feel free with the details below.</p>
 			</div>
 		</section>
 

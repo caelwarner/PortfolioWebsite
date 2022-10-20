@@ -1,5 +1,5 @@
 <template>
-	<Project title="Portfolio" subtitle="Generic Subtitle" imgSrc="/index/portfolio-front-page.png" :buttons="[
+	<Project title="caelwarner.com" subtitle="3D Portfolio" imgSrc="/index/portfolio-front-page.png" :buttons="[
 		{ label: 'View Source', link: 'https://caelwarner.com/gh/PortfolioWebsite' }
 	]" :blogPosts="[
 		{ title: 'Developing my Portfolio', link: '/developing-my-portfolio', date: '2022/09/19' },
