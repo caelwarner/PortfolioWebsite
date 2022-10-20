@@ -164,7 +164,10 @@
 
 <script>
 export default {
-	layout: "default"
+	layout: "default",
+	mounted() {
+		document.body.style.backgroundColor = "#03020b";
+	}
 }
 </script>
 
