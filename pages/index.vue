@@ -1,19 +1,23 @@
 <template>
 	<div id="page">
 		<section id="home">
-			<div class="heading">
-				<h1>Cael Warner</h1>
-				<h3><span>\</span>Developer</h3>
-			</div>
-			<div class="planet">
-				<client-only>
-					<Planet />
+			<div class="main-content">
+				<div class="heading">
+					<h1>Cael Warner</h1>
+					<h3><span>\</span>Developer</h3>
+				</div>
+				<div class="planet">
+					<client-only>
+						<Planet :key="planetKey" />
 
-					<template slot="placeholder">
-						<h2 class="planet-loading">Loading...</h2>
-					</template>
-				</client-only>
+						<template slot="placeholder">
+							<h2 class="planet-loading">Loading...</h2>
+						</template>
+					</client-only>
+				</div>
 			</div>
+
+			<p id="reload-planet" @click="rerenderPlanet">This planet is procedurally generated. Click to regenerate.</p>
 		</section>
 
 		<section id="projects">
@@ -24,7 +28,7 @@
 					<h6 class="date">Oct 2020 - Present</h6>
 					<p>
 						A community lead mod to expand on Minecraft in Java. It's currently amassed over
-						{{(this.curseforgeDownloads / 1000000).toFixed(1)}} million downloads.
+						{{(curseforgeDownloads / 1000000).toFixed(1)}} million downloads.
 					</p>
 					<div class="buttons">
 						<NuxtLink to="/project/infernal-expansion">
@@ -165,11 +169,19 @@
 <script>
 export default {
 	layout: "default",
-	data: () => ({
-		curseforgeDownloads: 0
-	}),
+	data() {
+		return {
+			curseforgeDownloads: 0,
+			planetKey: 0
+		};
+	},
 	mounted() {
 		document.body.style.backgroundColor = "#03020b";
+	},
+	methods: {
+		rerenderPlanet() {
+			this.planetKey += 1;
+		}
 	},
 	async fetch() {
 		this.curseforgeDownloads = await fetch("https://api.cfwidget.com/395078")
@@ -183,6 +195,13 @@ export default {
 
 <style scoped>
 #home {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#home .main-content {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -211,6 +230,15 @@ export default {
 }
 
 #home .heading h3 span {
+	color: var(--primary-color);
+}
+
+#home #reload-planet {
+	transition: color 0.15s;
+	cursor: pointer;
+}
+
+#home #reload-planet:hover {
 	color: var(--primary-color);
 }
 
@@ -463,7 +491,7 @@ export default {
 }
 
 @media screen and (max-width: 1200px) {
-	#home {
+	#home .main-content {
 		flex-direction: column;
 	}
 
