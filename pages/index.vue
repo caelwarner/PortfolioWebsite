@@ -23,8 +23,8 @@
 					<h2 class="name">Infernal Expansion</h2>
 					<h6 class="date">Oct 2020 - Present</h6>
 					<p>
-						A community lead mod to expand on Minecraft in Java. It's currently amassed over 6.5 million
-						downloads.
+						A community lead mod to expand on Minecraft in Java. It's currently amassed over
+						{{(this.curseforgeDownloads / 1000000).toFixed(1)}} million downloads.
 					</p>
 					<div class="buttons">
 						<NuxtLink to="/project/infernal-expansion">
@@ -165,9 +165,19 @@
 <script>
 export default {
 	layout: "default",
+	data: () => ({
+		curseforgeDownloads: 0
+	}),
 	mounted() {
 		document.body.style.backgroundColor = "#03020b";
-	}
+	},
+	async fetch() {
+		this.curseforgeDownloads = await fetch("https://api.cfwidget.com/395078")
+			.then(res => res.json())
+			.then(data => data.downloads.total);
+	},
+	fetchOnServer: false,
+	fetchDelay: 0
 }
 </script>
 
