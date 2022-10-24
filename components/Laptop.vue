@@ -106,8 +106,8 @@ export default class extends Vue {
 		const translatedX = (Math.min((this.mouseX) / window.innerWidth, 1) * 2) - 1;
 		const translatedY = (Math.min((this.mouseY - canvasY) / window.innerHeight, 1) * 2) - 1;
 
-		this.pivot.rotation.y = (translatedX * 0.05);
-		this.pivot.rotation.x = (translatedY * 0.05);
+		this.pivot.rotation.y = (translatedX * 0.03);
+		this.pivot.rotation.x = (translatedY * 0.03);
 	}
 }
 </script>
