@@ -23,6 +23,7 @@ export default class extends Vue {
 	private camera: THREE.PerspectiveCamera | undefined;
 	private laptop: THREE.Object3D | undefined;
 	private screen: THREE.Object3D | undefined;
+	private pivot: THREE.Group | undefined;
 
 	private mouseX = 0;
 	private mouseY = 0;
@@ -55,17 +56,20 @@ export default class extends Vue {
 
 		this.screen = new THREE.Mesh(screenGeometry, screenMaterial);
 
-		this.screen.position.set(0, 21.5, 3.5);
-		this.screen.rotation.set(-0.08, 0, 0)
+		this.screen.position.set(0, 21.5, 3.1);
+		this.screen.rotation.set(-0.12, 0, 0)
+
+		this.pivot = new THREE.Group();
+		this.pivot.add(this.laptop, this.screen);
 
 		const ambientLight = new THREE.AmbientLight(0xFFFFFF, 0.15);
-		const light = new THREE.PointLight(0xdff9fb, 1);
+		const light = new THREE.PointLight(0xaba3ee, 1);
 
 		light.position.setY(4000);
 		light.position.setX(-3000);
 		light.position.setZ(1000);
 
-		this.scene.add(this.laptop, this.screen, ambientLight, light);
+		this.scene.add(this.pivot, ambientLight, light);
 
 		this.renderer.setPixelRatio(window.devicePixelRatio);
 		this.renderer.setSize(this.$el.clientWidth, this.$el.clientHeight);
@@ -95,17 +99,15 @@ export default class extends Vue {
 
 		this.renderer.render(this.scene, this.camera!);
 
-		if (!this.laptop || !this.screen)
+		if (!this.pivot)
 			return;
 
-		this.laptop!.position.x = (this.mouseX * 0.0005) - 149.45;
-		this.laptop!.position.y = (this.mouseY * -0.0005) + 10;
+		const canvasY = this.$el.getBoundingClientRect().y + (this.$el.getBoundingClientRect().height / 2)
+		const translatedX = (Math.min((this.mouseX) / window.innerWidth, 1) * 2) - 1;
+		const translatedY = (Math.min((this.mouseY - canvasY) / window.innerHeight, 1) * 2) - 1;
 
-		this.screen!.position.x = (this.mouseX * 0.0005);
-		this.screen!.position.y = (this.mouseY * -0.0005) + 21.5;
-
-		// this.camera!.rotation.x = this.mouseY * -0.00005;
-		// this.camera!.rotation.y = (this.mouseX + 200) * -0.00005;
+		this.pivot.rotation.y = (translatedX * 0.05);
+		this.pivot.rotation.x = (translatedY * 0.05);
 	}
 }
 </script>
