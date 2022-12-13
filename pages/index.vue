@@ -438,9 +438,8 @@ export default {
 	}
 
 	.project .content {
-		margin-right: 0;
-		margin-top: 4rem;
-		margin-bottom: -4rem;
+		margin: 4rem 0 -4rem;
+		z-index: 10;
 	}
 
 	#about {
@@ -507,7 +506,7 @@ export default {
 	}
 }
 
-@media screen and (max-width: 1600px) {
+@media screen and (min-width: 768px) and (max-width: 1600px) {
 	.project .content {
 		margin-left: 4rem;
 		margin-right: 0;
