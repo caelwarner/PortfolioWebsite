@@ -37,7 +37,7 @@ body {
 }
 
 #app {
-	font-family: "Gotham", Helvetica, Arial, sans-serif;
+	font-family: "Inter", Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
@@ -48,7 +48,7 @@ button {
 	cursor: pointer;
 	font-size: 0.8rem;
 	font-weight: 500;
-	font-family: "Gotham", Helvetica, Arial, sans-serif;
+	font-family: "Inter", Helvetica, Arial, sans-serif;
 	background-color: transparent;
 	border: 0.1rem solid var(--primary-color);
 	padding: 0.7em 2em;

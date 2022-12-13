@@ -298,6 +298,7 @@ export default {
 .project .content h6 {
 	color: var(--secondary-color);
 	font-size: 0.7rem;
+	font-weight: 900;
 	margin: 0;
 	line-height: 0.1rem;
 }

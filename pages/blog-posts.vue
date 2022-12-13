@@ -93,7 +93,7 @@ export default {
 
 .blog-post .project-name {
 	color: var(--primary-color);
-	font-weight: bold;
+	font-weight: 800;
 	margin-bottom: 0.1rem;
 }
 

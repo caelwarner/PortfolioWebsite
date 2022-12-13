@@ -17,8 +17,8 @@ nav {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	font-family: "Gotham", Helvetica, Arial, sans-serif;
-	font-weight: 500;
+	font-family: "Inter", Helvetica, Arial, sans-serif;
+	font-weight: 600;
 	margin-top: 2rem;
 	margin-right: 5rem;
 	margin-left: 5rem;
