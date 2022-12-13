@@ -103,33 +103,33 @@
 					</client-only>
 				</div>
 			</div>
-			<div class="project">
-				<div class="content">
-					<h2 class="name">caelwarner.com</h2>
-					<h6 class="date">Jan 2022 & Sept 2022</h6>
-					<p>
-						This professional portfolio site enhanced with procedurally generated 3D elements
-					</p>
-					<div class="buttons">
-						<NuxtLink to="/project/portfolio">
-							<button>View Project</button>
-						</NuxtLink>
-						<a href="https://caelwarner.com/gh/PortfolioWebsite" target="_blank">
-							<button>View Source</button>
-						</a>
-					</div>
-				</div>
+<!--			<div class="project">-->
+<!--				<div class="content">-->
+<!--					<h2 class="name">caelwarner.com</h2>-->
+<!--					<h6 class="date">Jan 2022 & Sept 2022</h6>-->
+<!--					<p>-->
+<!--						This professional portfolio site enhanced with procedurally generated 3D elements-->
+<!--					</p>-->
+<!--					<div class="buttons">-->
+<!--						<NuxtLink to="/project/portfolio">-->
+<!--							<button>View Project</button>-->
+<!--						</NuxtLink>-->
+<!--						<a href="https://caelwarner.com/gh/PortfolioWebsite" target="_blank">-->
+<!--							<button>View Source</button>-->
+<!--						</a>-->
+<!--					</div>-->
+<!--				</div>-->
 
-				<div class="laptop">
-					<client-only>
-						<Laptop texture="index/portfolio-front-page.png" />
+<!--				<div class="laptop">-->
+<!--					<client-only>-->
+<!--						<Laptop texture="index/portfolio-front-page.png" />-->
 
-						<template slot="placeholder">
-							<h3 class="laptop-loading">Loading...</h3>
-						</template>
-					</client-only>
-				</div>
-			</div>
+<!--						<template slot="placeholder">-->
+<!--							<h3 class="laptop-loading">Loading...</h3>-->
+<!--						</template>-->
+<!--					</client-only>-->
+<!--				</div>-->
+<!--			</div>-->
 		</section>
 
 		<section id="about">
